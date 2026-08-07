@@ -294,6 +294,90 @@
       padding-top:10px;
     }
   }
+
+  .details-btn{
+    display:inline-block;
+    margin-top:8px;
+    width:100%;
+    text-align:center;
+    background:transparent;
+    border:1px solid var(--gold);
+    color:var(--gold-bright);
+    font-family:'Tajawal', sans-serif;
+    font-size:13px;
+    padding:8px 0;
+    border-radius:6px;
+    cursor:pointer;
+    transition:background .2s, color .2s;
+  }
+  .details-btn:hover{
+    background:var(--gold);
+    color:#0b0b0c;
+  }
+  .book-footer{ flex-direction:column; align-items:stretch; gap:8px; }
+
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    z-index:999;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .modal-overlay.active{ display:flex; }
+  .modal-box{
+    background:var(--card);
+    border:1px solid var(--gold);
+    border-radius:12px;
+    max-width:480px;
+    width:100%;
+    max-height:85vh;
+    overflow-y:auto;
+    padding:26px;
+    position:relative;
+  }
+  .modal-close{
+    position:absolute;
+    top:14px;
+    left:14px;
+    background:none;
+    border:none;
+    color:var(--text-dim);
+    font-size:22px;
+    cursor:pointer;
+    line-height:1;
+  }
+  .modal-close:hover{ color:var(--gold-bright); }
+  .modal-title{
+    font-family:'Cairo', sans-serif;
+    font-weight:900;
+    font-size:19px;
+    color:var(--gold-bright);
+    margin-bottom:14px;
+    padding-left:30px;
+  }
+  .modal-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .modal-meta span{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:5px 12px;
+    font-size:12.5px;
+    color:var(--text-dim);
+  }
+  .modal-meta span b{ color:var(--gold-bright); font-weight:700; }
+  .modal-desc{
+    color:var(--text);
+    font-size:14.5px;
+    line-height:2;
+  }
 </style>
 </head>
 <body>
@@ -327,6 +411,7 @@
       <div class="book-footer">
         <div class="book-price">900<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -340,6 +425,7 @@
       <div class="book-footer">
         <div class="book-price">900<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -353,6 +439,7 @@
       <div class="book-footer">
         <div class="book-price">1000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -366,6 +453,7 @@
       <div class="book-footer">
         <div class="book-price">1000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -379,6 +467,7 @@
       <div class="book-footer">
         <div class="book-price">1200<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -392,6 +481,7 @@
       <div class="book-footer">
         <div class="book-price">1200<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -405,6 +495,7 @@
       <div class="book-footer">
         <div class="book-price">1300<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -418,6 +509,7 @@
       <div class="book-footer">
         <div class="book-price">1500<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -431,6 +523,7 @@
       <div class="book-footer">
         <div class="book-price">1500<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -444,6 +537,7 @@
       <div class="book-footer">
         <div class="book-price">1500<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -457,6 +551,7 @@
       <div class="book-footer">
         <div class="book-price">1500<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -470,6 +565,7 @@
       <div class="book-footer">
         <div class="book-price">1600<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -483,6 +579,7 @@
       <div class="book-footer">
         <div class="book-price">1600<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -496,6 +593,7 @@
       <div class="book-footer">
         <div class="book-price">1700<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -509,6 +607,7 @@
       <div class="book-footer">
         <div class="book-price">1800<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -522,6 +621,7 @@
       <div class="book-footer">
         <div class="book-price">1800<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -535,6 +635,7 @@
       <div class="book-footer">
         <div class="book-price">1800<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -548,6 +649,7 @@
       <div class="book-footer">
         <div class="book-price">1900<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -561,6 +663,7 @@
       <div class="book-footer">
         <div class="book-price">2000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -574,6 +677,7 @@
       <div class="book-footer">
         <div class="book-price">2000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -587,6 +691,7 @@
       <div class="book-footer">
         <div class="book-price">2500<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -600,6 +705,7 @@
       <div class="book-footer">
         <div class="book-price">2600<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -613,6 +719,7 @@
       <div class="book-footer">
         <div class="book-price">2800<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -626,6 +733,7 @@
       <div class="book-footer">
         <div class="book-price">2800<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -639,6 +747,7 @@
       <div class="book-footer">
         <div class="book-price">3000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -652,6 +761,7 @@
       <div class="book-footer">
         <div class="book-price">3000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -665,6 +775,7 @@
       <div class="book-footer">
         <div class="book-price">3000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -678,6 +789,7 @@
       <div class="book-footer">
         <div class="book-price">3200<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -691,6 +803,7 @@
       <div class="book-footer">
         <div class="book-price">3300<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -704,6 +817,7 @@
       <div class="book-footer">
         <div class="book-price">4000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -717,6 +831,7 @@
       <div class="book-footer">
         <div class="book-price">4000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -730,6 +845,7 @@
       <div class="book-footer">
         <div class="book-price">4600<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -743,6 +859,7 @@
       <div class="book-footer">
         <div class="book-price">4700<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -756,6 +873,7 @@
       <div class="book-footer">
         <div class="book-price">6000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -769,6 +887,7 @@
       <div class="book-footer">
         <div class="book-price">7000<small>دج</small></div>
         <a class="buy-btn" href="https://ig.me/m/coach__anis" target="_blank" rel="noopener">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
   </article>
@@ -807,5 +926,255 @@
   filterBooks();
 </script>
 
+
+<div class="modal-overlay" id="bookModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetails()">&times;</button>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-meta" id="modalMeta"></div>
+    <div class="modal-desc" id="modalDesc"></div>
+  </div>
+</div>
+<script>
+const bookDetails = {
+  "nutrition for dummies (7th edition)": {
+    author: "Carol Ann Rinzler",
+    pages: "384 صفحة",
+    year: "2016",
+    content: "دليل تمهيدي شامل لأساسيات التغذية، يشرح بأسلوب مبسّط الفيتامينات والمعادن والعناصر الغذائية الكبرى، وكيفية قراءة الملصقات الغذائية، وبناء نظام غذائي متوازن. مناسب جدًا للمبتدئين الذين يريدون أساسًا علميًا مبسطًا قبل الدخول في التفاصيل التقنية."
+  },
+  "anatomy and physiology for dummies": {
+    author: "Erin Odya & Maggie Norris",
+    pages: "384 صفحة",
+    year: "الطبعة الثانية 2012",
+    content: "مقدمة مبسطة لعلم التشريح ووظائف الأعضاء، تغطي الجهاز العضلي والهيكلي والدوري والعصبي وغيرها. كتاب ممتاز لأي مدرب أو مهتم بالرياضة يريد فهم كيفية عمل جسم الإنسان من الداخل بلغة سهلة وغير معقدة."
+  },
+  "jeff nippard's squat specialization program": {
+    author: "Jeff Nippard",
+    pages: "برنامج تدريبي (PDF) — حوالي 40-50 صفحة",
+    year: "غير محدد (إصدار رقمي)",
+    content: "برنامج تخصصي مدته 6 أسابيع لزيادة قوة حركة القرفصاء (Squat)، مبني على مبادئ علمية في التحميل التدريجي والتعافي. يتضمن جداول تدريب أسبوعية مفصلة وتعليمات حول التقنية والتنويعات المساعدة."
+  },
+  "jeff nippard's bench press specialization program": {
+    author: "Jeff Nippard",
+    pages: "برنامج تدريبي (PDF) — حوالي 40-50 صفحة",
+    year: "غير محدد (إصدار رقمي)",
+    content: "برنامج تخصصي مدته 6 أسابيع لزيادة قوة حركة الضغط بالبار (Bench Press)، يعتمد أيضًا على البحث العلمي في القوة والتضخم، مع تمارين مساعدة وتوزيع أحمال أسبوعي."
+  },
+  "the biomechanics manual": {
+    author: "إصدار متخصص في الميكانيكا الحيوية للتمارين",
+    pages: "حوالي 100-150 صفحة",
+    year: "غير محدد",
+    content: "دليل يشرح المبادئ الميكانيكية الحيوية للحركات الرياضية الأساسية (قرفصاء، دفعة أرضية، ضغط) من ناحية زوايا المفاصل وتوزيع القوة، ويساعد المدربين على تحسين تقنية عملائهم وتقليل خطر الإصابة."
+  },
+  "ignite the fire": {
+    author: "Jonathan Goodman",
+    pages: "حوالي 250 صفحة",
+    year: "2015",
+    content: "كتاب موجه لمدربي اللياقة البدنية حول بناء مسيرة مهنية ناجحة، يتناول جوانب التسويق الشخصي، بناء علاقة مع العملاء، وتطوير مهارات التدريب والتواصل بعيدًا عن الجانب العلمي البحت."
+  },
+  "how not to diet": {
+    author: "Dr. Michael Greger",
+    pages: "608 صفحة",
+    year: "2019",
+    content: "يستعرض المؤلف أدلة علمية حول أكثر الأنظمة الغذائية فعالية لإنقاص الوزن بشكل صحي ومستدام، مع تركيز على الأغذية النباتية الكاملة، ونقد للحميات السريعة، ويقدم خطة عملية لإنقاص الوزن."
+  },
+  "powerbuilding system": {
+    author: "برنامج تدريبي متخصص (Powerbuilding)",
+    pages: "برنامج PDF — حوالي 80-100 صفحة",
+    year: "غير محدد",
+    content: "برنامج يجمع بين تدريب القوة (Powerlifting) وتضخيم العضلات (Bodybuilding)، يهدف لزيادة الأرقام في الرفعات الثلاث مع الحفاظ على بناء العضلات وتحسين الشكل الجمالي للجسم."
+  },
+  "powerbuilding phase 2.0": {
+    author: "برنامج تدريبي متخصص (Powerbuilding)",
+    pages: "برنامج PDF — حوالي 80-100 صفحة",
+    year: "غير محدد",
+    content: "المرحلة الثانية من برنامج Powerbuilding، مصمم لمن أنهى المرحلة الأولى، يرفع مستوى الشدة والحجم التدريبي لمواصلة التقدم في القوة والحجم العضلي."
+  },
+  "scientific principles of hypertrophy training": {
+    author: "Menno Henselmans",
+    pages: "حوالي 60-80 صفحة",
+    year: "غير محدد",
+    content: "دليل علمي مكثف يشرح أهم المتغيرات المؤثرة في تضخم العضلات (الحجم، الشدة، التكرار، الحجم الأسبوعي)، مبني على أحدث الأبحاث في فسيولوجيا التمرين، ومخصص للمدربين والرياضيين المتقدمين."
+  },
+  "level up": {
+    author: "برنامج/دليل تدريبي متخصص",
+    pages: "حوالي 100 صفحة",
+    year: "غير محدد",
+    content: "دليل تدريبي يهدف لمساعدة المتدربين على تجاوز مرحلة الثبات (Plateau) والانتقال إلى مستوى أعلى من القوة والحجم العضلي من خلال استراتيجيات تحميل تدريجي متقدمة."
+  },
+  "practical programming for strength training (3rd edition)": {
+    author: "Mark Rippetoe & Andy Baker",
+    pages: "376 صفحة",
+    year: "الطبعة الثالثة 2013",
+    content: "مرجع أساسي في برمجة تدريبات القوة، يشرح كيفية تصميم برامج تدريبية للمبتدئين والمتوسطين والمتقدمين باستخدام مبادئ التحميل التدريجي، ويعتبر من أهم الكتب في مجال البرمجة التدريبية."
+  },
+  "starting strength": {
+    author: "Mark Rippetoe",
+    pages: "347 صفحة",
+    year: "الطبعة الثالثة 2011",
+    content: "الكتاب المرجعي الأشهر لتعليم الحركات الأساسية الخمس (قرفصاء، رفعة أرضية، ضغط بار، دفع علوي، خطف) بالتفصيل التقني الكامل، مع شرح ميكانيكي دقيق لكل حركة، وهو أساس معتمد لدى الكثير من المدربين."
+  },
+  "built from broken": {
+    author: "Scott H Mendelson",
+    pages: "حوالي 280 صفحة",
+    year: "2020",
+    content: "كتاب يركز على صحة المفاصل والأربطة والأنسجة الضامة، ويقدم استراتيجيات علمية للوقاية من الإصابات وتقوية المفاصل، مفيد جدًا للرياضيين الذين يعانون من إصابات متكررة أو يريدون الوقاية منها."
+  },
+  "science and practice of strength training": {
+    author: "Vladimir Zatsiorsky & William Kraemer",
+    pages: "264 صفحة",
+    year: "الطبعة الثالثة 2020",
+    content: "مرجع علمي كلاسيكي في تدريب القوة، يجمع بين الأسس الفسيولوجية والبيوميكانيكية لتطوير القوة العضلية، ويستخدم على نطاق واسع في برامج تعليم علوم الرياضة والتدريب الرياضي المتقدم."
+  },
+  "the muscle ladder": {
+    author: "Jared Feather",
+    pages: "حوالي 150-200 صفحة",
+    year: "غير محدد",
+    content: "دليل تدريجي (سلّم) لبناء العضلات يبدأ من الأساسيات وينتقل تدريجيًا إلى مفاهيم أكثر تقدمًا في التدريب والتغذية، مصمم ليكون مرجعًا عمليًا سهل التطبيق للمتدربين في مختلف المستويات."
+  },
+  "the language of coaching": {
+    author: "Nick Winkelman",
+    pages: "352 صفحة",
+    year: "2020",
+    content: "يتناول علم التوجيه اللفظي (Cueing) في التدريب الرياضي، وكيفية اختيار الكلمات والتشبيهات المناسبة لتحسين تعلم الحركة وأداء الرياضيين، بالاستناد إلى علم الأعصاب الحركي والتعلم الحركي."
+  },
+  "the champions mind": {
+    author: "Jim Afremow",
+    pages: "272 صفحة",
+    year: "2014",
+    content: "كتاب في علم النفس الرياضي يستعرض العادات الذهنية للرياضيين الأبطال، ويقدم أدوات عملية لبناء الثقة، التركيز، والتعامل مع الضغط والفشل لتحقيق أعلى مستوى من الأداء الرياضي."
+  },
+  "science and development of muscle hypertrophy": {
+    author: "Brad Schoenfeld",
+    pages: "248 صفحة",
+    year: "الطبعة الثانية 2020",
+    content: "مرجع علمي شامل حول آليات تضخم العضلات، يغطي التوتر الميكانيكي، الإجهاد الأيضي، والتلف العضلي، مع تطبيقات عملية لتصميم برامج تدريبية تهدف لزيادة الحجم العضلي بأسلوب علمي دقيق."
+  },
+  "advanced sports nutrition": {
+    author: "Dan Benardot",
+    pages: "392 صفحة",
+    year: "الطبعة الثالثة 2021",
+    content: "دليل متقدم في التغذية الرياضية يغطي احتياجات الرياضيين من الطاقة والماكرونيوترينتس والمايكرونيوترينتس حسب نوع الرياضة، مع استراتيجيات تغذية قبل وأثناء وبعد الأداء الرياضي."
+  },
+  "sport nutrition": {
+    author: "Asker Jeukendrup & Michael Gleeson",
+    pages: "648 صفحة",
+    year: "الطبعة الثالثة 2018",
+    content: "مرجع أكاديمي شامل في علم التغذية الرياضية، يغطي الأيض، أنظمة الطاقة، الترطيب، والمكملات الغذائية، ويستخدم كمرجع دراسي في برامج علوم الرياضة والتغذية على المستوى الجامعي."
+  },
+  "rebuilding milo": {
+    author: "Dr. Aaron Horschig",
+    pages: "312 صفحة",
+    year: "2021",
+    content: "دليل عملي لإعادة بناء الجسم بعد الإصابات في رياضات القوة، يقدم برامج تصحيحية لتقوية نقاط الضعف واستعادة الحركة السليمة، من إعداد أخصائي علاج طبيعي متخصص في رياضات القوة."
+  },
+  "train smarter, not longer": {
+    author: "Josh Bryant وآخرون (إصدار متخصص)",
+    pages: "حوالي 200 صفحة",
+    year: "غير محدد",
+    content: "يركز الكتاب على تحسين كفاءة التدريب بدلاً من زيادة حجمه، من خلال استراتيجيات تدريبية ذكية تعتمد على الجودة والتخطيط الصحيح لتحقيق نتائج أفضل في وقت أقل."
+  },
+  "advanced neuromuscular exercise physiology": {
+    author: "Phillip Sanchez & Aritz Urdaibay",
+    pages: "296 صفحة",
+    year: "الطبعة الثانية 2022",
+    content: "مرجع متقدم في فسيولوجيا الجهاز العصبي العضلي أثناء التمرين، يشرح آليات توليد القوة والانقباض العضلي والتكيفات العصبية الناتجة عن التدريب، موجه للمتخصصين وطلاب علوم الرياضة."
+  },
+  "the muscle & strength pyramid: training (3rd edition)": {
+    author: "Eric Helms, Andy Morgan & Andrea Valdez",
+    pages: "حوالي 300 صفحة",
+    year: "الطبعة الثالثة",
+    content: "يقدم هرمًا للأولويات في تصميم برامج التدريب لكمال الأجسام، مرتبًا من الأهم إلى الأقل أهمية (الالتزام، الحجم، الشدة، التقنية...)، مبني بالكامل على أدلة علمية حديثة."
+  },
+  "the muscle & strength pyramid: nutrition": {
+    author: "Eric Helms, Alberto Nunez & Andrea Valdez",
+    pages: "حوالي 300 صفحة",
+    year: "الطبعة الثانية/الثالثة",
+    content: "الجزء المكمل الخاص بالتغذية، يقدم هرم أولويات غذائي لكمال الأجسام يبدأ من السعرات والماكروز وصولًا إلى توقيت الوجبات والمكملات، بأسلوب علمي وعملي في آن واحد."
+  },
+  "physiology of sport and exercise": {
+    author: "W. Larry Kenney, Jack Wilmore & David Costill",
+    pages: "648 صفحة",
+    year: "الطبعة السابعة 2019",
+    content: "من أهم المراجع الجامعية في فسيولوجيا الرياضة، يغطي كل أنظمة الجسم واستجاباتها للتمرين (القلب، التنفس، العضلات، الهرمونات)، ويستخدم كمنهج أساسي في تخصصات علوم الرياضة حول العالم."
+  },
+  "advanced nutrition and human metabolism": {
+    author: "Sareen Gropper & Jack Smith",
+    pages: "662 صفحة",
+    year: "2021",
+    content: "مرجع أكاديمي متقدم في التغذية وعلم الأيض البشري، يغطي هضم وامتصاص واستقلاب الماكرو والمايكرونيوترينتس على المستوى الخلوي والجزيئي، ."
+  },
+  "biomechanics of skeletal muscles": {
+    author: "Vladimir Zatsiorsky & Boris Prilutsky",
+    pages: "537 صفحة",
+    year: "2012",
+    content: "مرجع علمي متخصص في الميكانيكا الحيوية للعضلات الهيكلية، يتناول آليات الانقباض والقوة والحركة من منظور فيزيائي ورياضي دقيق، ."
+  },
+  "guyton and hall textbook of medical physiology": {
+    author: "John E. Hall",
+    pages: "1157 صفحة",
+    year: "الطبعة الرابعة عشرة 2020",
+    content: "أشهر مرجع طبي عالمي في علم وظائف الأعضاء (الفسيولوجيا)، يغطي جميع أجهزة الجسم بالتفصيل العلمي الدقيق، ويعتبر مرجعًا أساسيًا لطلاب الطب وعلوم الرياضة المتقدمة."
+  },
+  "anabolic steroids": {
+    author: "abdullah tulbah",
+    pages: "126",
+    year: "2018",
+    content: "كتاب علمي يتناول الستيرويدات الابتنائية من الناحية الفسيولوجية والدوائية: آلية عملها، تأثيراتها على الجسم، ومخاطرها الصحية. مرجع معرفي ."
+  },
+  "exercise physiology": {
+    author: "William McArdle, Frank Katch & Victor Katch",
+    pages: "1106 صفحة",
+    year: "2010",
+    content: "من أعمق وأشمل المراجع في فسيولوجيا التمرين، يغطي الطاقة والأيض والتكيفات الفسيولوجية للتدريب الرياضي بمستوى أكاديمي متقدم جدًا، يستخدم في برامج الدراسات العليا في علوم الرياضة."
+  },
+  "kinesiology of the musculoskeletal system": {
+    author: "Donald Neumann",
+    pages: "792 صفحة",
+    year: "الطبعة الثالثة 2016",
+    content: "مرجع أساسي في علم الحركة (Kinesiology) للجهاز العضلي الهيكلي، يشرح تشريح ووظيفة كل مفصل وعضلة بالتفصيل مع تطبيقات سريرية وحركية، يستخدم في تخصصات العلاج الطبيعي وعلوم الرياضة."
+  },
+  "william llewellyn's anabolics": {
+    author: "William Llewellyn",
+    pages: "835",
+    year: "2017",
+    content: "الموسوعة المرجعية الأشهر عالميًا حول الستيرويدات الابتنائية والهرمونات المساعدة على الأداء، تغطي خصائص كل مادة وتأثيراتها ومخاطرها بمستوى علمي موثق. مرجع معرفي بحت."
+  },
+  "essentials of strength training and conditioning (5th edition)": {
+    author: "NSCA - G. Gregory Haff & N. Travis Triplett",
+    pages: "1876 صفحة",
+    year: "2026",
+    content: "المرجع الرسمي المعتمد لدى الرابطة الوطنية الأمريكية للقوة والتكييف (NSCA)، ويعتبر الأساس لشهادة CSCS العالمية. يغطي كل أسس تدريب القوة والتكييف الرياضي من الناحية العلمية والتطبيقية."
+  }
+};
+
+function showDetails(btn){
+  const card = btn.closest('.book-card');
+  const key = card.getAttribute('data-title');
+  const titleText = card.querySelector('.book-title').textContent;
+  const info = bookDetails[key];
+  document.getElementById('modalTitle').textContent = titleText;
+  const meta = document.getElementById('modalMeta');
+  const desc = document.getElementById('modalDesc');
+  if(info){
+    meta.innerHTML =
+      '<span><b>المؤلف:</b> ' + info.author + '</span>' +
+      '<span><b>عدد الصفحات:</b> ' + info.pages + '</span>' +
+      '<span><b>سنة النشر:</b> ' + info.year + '</span>';
+    desc.textContent = info.content;
+  } else {
+    meta.innerHTML = '';
+    desc.textContent = 'التفاصيل غير متوفرة حاليًا لهذا الكتاب.';
+  }
+  document.getElementById('bookModal').classList.add('active');
+}
+function closeDetails(){
+  document.getElementById('bookModal').classList.remove('active');
+}
+document.getElementById('bookModal').addEventListener('click', function(e){
+  if(e.target === this) closeDetails();
+});
+</script>
 </body>
 </html>
