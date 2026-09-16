@@ -4340,6 +4340,59 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
   if(e.target === this) closeOrderForm();
 });
 
+(function(){
+  const orderFormEl = document.getElementById('orderForm');
+  if(!orderFormEl) return;
+  orderFormEl.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const submitBtn = document.getElementById('orderSubmitBtn');
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+    if(submitBtn){
+      submitBtn.disabled = true;
+      submitBtn.textContent = '...';
+    }
+
+    const formData = new FormData(orderFormEl);
+    const actionUrl = orderFormEl.getAttribute('action');
+    const ajaxUrl = actionUrl.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+
+    fetch(ajaxUrl, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res){
+      if(!res.ok) throw new Error('bad response');
+      return res.json().catch(function(){ return {}; });
+    })
+    .then(function(){
+      showOrderSuccess();
+    })
+    .catch(function(){
+      // Fallback: still let the user's request go through via mailto
+      fallbackMailto();
+    })
+    .finally(function(){
+      if(submitBtn){
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    });
+  });
+
+  function showOrderSuccess(){
+    const form = document.getElementById('orderForm');
+    const success = document.getElementById('orderSuccess');
+    if(form) form.classList.add('hidden');
+    if(success) success.classList.add('active');
+    if(window.__orderFromCart){
+      if(typeof clearCart === 'function') clearCart();
+      window.__orderFromCart = false;
+    }
+  }
+})();
+
 window.currentDetailCard = null;
 
 function showDetails(btn){
