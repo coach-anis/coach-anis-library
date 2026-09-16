@@ -3406,6 +3406,9 @@ const themeBtn = document.getElementById('themeToggle');
         <div class="order-success-icon">✓</div>
         <h3 data-i18n="orderSuccessTitle">شكراً لطلبك</h3>
         <p data-i18n="orderSuccessDesc">تم استلام طلبك بنجاح. سنراجع التفاصيل ونتواصل معك قريباً لتأكيد الطلب وإتمام العملية.</p>
+        <p id="orderSuccessFallbackNote" style="display:none;color:#b45309;font-size:14px;margin-top:10px">
+          تعذر الإرسال التلقائي، فتحنا لك تطبيق الإيميل — الرجاء الضغط على "إرسال" داخل التطبيق لإتمام الطلب.
+        </p>
       </div>
       <div class="order-actions" style="margin-top:16px">
         <button type="button" class="order-submit" onclick="closeOrderForm()" data-i18n="orderClose">حسناً</button>
@@ -4319,17 +4322,15 @@ function buildOrderMessage(){
   return msg;
 }
 function fallbackMailto(){
-  const name = (document.getElementById('orderName') || {}).value || '';
-  const phone = (document.getElementById('orderPhone') || {}).value || '';
-  const book = (document.getElementById('orderBook') || {}).value || '';
-  const notes = (document.getElementById('orderNotes') || {}).value || '';
   const subject = encodeURIComponent('طلب كتاب جديد — Coach Anis Library');
   const body = encodeURIComponent(buildOrderMessage());
   window.location.href = 'mailto:anisbitam21@gmail.com?subject=' + subject + '&body=' + body;
   const form = document.getElementById('orderForm');
   const success = document.getElementById('orderSuccess');
+  const title = document.getElementById('orderSuccessFallbackNote');
   if(form) form.classList.add('hidden');
   if(success) success.classList.add('active');
+  if(title) title.style.display = 'block';
   if(window.__orderFromCart){
     clearCart();
     window.__orderFromCart = false;
@@ -4363,14 +4364,22 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
       headers: { 'Accept': 'application/json' }
     })
     .then(function(res){
-      if(!res.ok) throw new Error('bad response');
-      return res.json().catch(function(){ return {}; });
+      if(!res.ok) throw new Error('http status ' + res.status);
+      return res.json();
     })
-    .then(function(){
-      showOrderSuccess();
+    .then(function(data){
+      console.log('FormSubmit response:', data);
+      // FormSubmit returns {"success":"true", ...} on a real send.
+      // Anything else means it did NOT actually email the order.
+      if(data && (data.success === 'true' || data.success === true)){
+        showOrderSuccess();
+      } else {
+        throw new Error('FormSubmit did not confirm success: ' + JSON.stringify(data));
+      }
     })
-    .catch(function(){
-      // Fallback: still let the user's request go through via mailto
+    .catch(function(err){
+      console.error('Order submit failed, falling back to mailto:', err);
+      // Fallback: open the user's mail app instead of silently claiming success
       fallbackMailto();
     })
     .finally(function(){
