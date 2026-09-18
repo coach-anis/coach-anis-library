@@ -1864,9 +1864,9 @@
     background:var(--card);
     border:1px solid var(--line);
     border-radius:14px;
-    padding:16px 14px;
-    margin-top:14px;
-    margin-bottom:4px;
+    padding:14px 12px 12px;
+    margin-top:4px;
+    margin-bottom:14px;
     display:none;
   }
   .detail-toc-box.visible{ display:block; }
@@ -1880,23 +1880,40 @@
     text-align:center;
   }
   .detail-toc-gallery{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    gap:10px;
+    overflow-x:auto !important;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    padding-bottom:6px;
+  }
+  .detail-toc-gallery::-webkit-scrollbar{ height:6px; }
+  .detail-toc-gallery::-webkit-scrollbar-thumb{
+    background:rgba(201,161,90,0.45);
+    border-radius:6px;
   }
   .detail-toc-gallery img{
-    width:100%;
-    height:auto;
+    flex:0 0 auto !important;
+    width:min(42vw, 160px) !important;
+    max-width:160px !important;
+    height:auto !important;
+    aspect-ratio:3/4;
+    object-fit:cover;
     border-radius:10px;
     border:1px solid var(--line);
     background:#000;
     display:block;
     cursor:zoom-in;
+    scroll-snap-align:start;
     transition: transform .2s, border-color .2s, box-shadow .2s;
   }
   .detail-toc-gallery img:hover{
     border-color: var(--gold);
-    box-shadow: 0 8px 24px -12px rgba(0,0,0,0.45);
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px -12px rgba(201,161,90,0.4);
   }
   body.light .detail-toc-gallery img{
     background:#f0ebe3;
@@ -3561,13 +3578,13 @@ const themeBtn = document.getElementById('themeToggle');
         <button class="detail-buy" id="detailBuyBtn" type="button" onclick="buyFromDetail()">شراء</button>
       </div>
     </div>
-    <div class="detail-desc-box">
-      <div class="detail-desc-label" id="detailDescLabel" data-i18n="aboutBook">عن الكتاب</div>
-      <div class="detail-desc" id="detailDesc"></div>
-    </div>
     <div class="detail-toc-box" id="detailTocBox">
       <div class="detail-toc-label" id="detailTocLabel" data-i18n="tocLabel">فهرس الكتاب</div>
       <div class="detail-toc-gallery" id="detailTocGallery"></div>
+    </div>
+    <div class="detail-desc-box">
+      <div class="detail-desc-label" id="detailDescLabel" data-i18n="aboutBook">عن الكتاب</div>
+      <div class="detail-desc" id="detailDesc"></div>
     </div>
   </div>
 </div>
