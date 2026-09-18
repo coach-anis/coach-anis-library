@@ -14,6 +14,10 @@
  * ثم أضف المسارات هنا فقط — لا حاجة لتعديل index.html
  */
 window.bookTocImages = {
+  "the art of lifting": [
+    "images/toc/art-of-lifting-1.jpg",
+    "images/toc/art-of-lifting-2.jpg"
+  ],
   "the food safety book": [
     "images/toc/food-safety-book-1.jpg",
     "images/toc/food-safety-book-2.jpg",
