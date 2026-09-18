@@ -14,6 +14,13 @@
  * ثم أضف المسارات هنا فقط — لا حاجة لتعديل index.html
  */
 window.bookTocImages = {
+  "the food safety book": [
+    "images/toc/food-safety-book-1.jpg",
+    "images/toc/food-safety-book-2.jpg",
+    "images/toc/food-safety-book-3.jpg",
+    "images/toc/food-safety-book-4.jpg",
+    "images/toc/food-safety-book-5.jpg"
+  ],
   "nutrition for dummies (7th edition)": [
     "images/toc/nutrition-for-dummies-1.jpg",
     "images/toc/nutrition-for-dummies-2.jpg"
