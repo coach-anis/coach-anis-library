@@ -14,6 +14,20 @@
  * ثم أضف المسارات هنا فقط — لا حاجة لتعديل index.html
  */
 window.bookTocImages = {
+  "built from broken": [
+    "images/toc/built-from-broken-1.jpg"
+  ],
+  "the champion's mind": [
+    "images/toc/champions-mind-1.jpg"
+  ],
+  "the biomechanics manual": [
+    "images/toc/biomechanics-manual-1.jpg"
+  ],
+  "eat like a gym girl + egg white oats": [
+    "images/toc/eat-like-a-gym-girl-1.jpg",
+    "images/toc/eat-like-a-gym-girl-2.jpg",
+    "images/toc/eat-like-a-gym-girl-3.jpg"
+  ],
   "the art of lifting": [
     "images/toc/art-of-lifting-1.jpg",
     "images/toc/art-of-lifting-2.jpg"
