@@ -14,6 +14,82 @@
  * ثم أضف المسارات هنا فقط — لا حاجة لتعديل index.html
  */
 window.bookTocImages = {
+  "essentials of human nutrition (4th edition)": [
+    "images/toc/essentials-human-nutrition-1.jpg",
+    "images/toc/essentials-human-nutrition-2.jpg",
+    "images/toc/essentials-human-nutrition-3.jpg",
+    "images/toc/essentials-human-nutrition-4.jpg"
+  ],
+  "win": [
+    "images/toc/win-1.jpg"
+  ],
+  "sarms matrix": [
+    "images/toc/sarms-matrix-1.jpg",
+    "images/toc/sarms-matrix-2.jpg"
+  ],
+  "biomechanics of sport and exercise (3rd edition)": [
+    "images/toc/biomechanics-sport-exercise-1.jpg",
+    "images/toc/biomechanics-sport-exercise-2.jpg",
+    "images/toc/biomechanics-sport-exercise-3.jpg"
+  ],
+  "rebuilding milo": [
+    "images/toc/rebuilding-milo-1.jpg",
+    "images/toc/rebuilding-milo-2.jpg"
+  ],
+  "the muscle & strength pyramid: nutrition (3rd edition)": [
+    "images/toc/muscle-strength-pyramid-nutrition-1.jpg",
+    "images/toc/muscle-strength-pyramid-nutrition-2.jpg",
+    "images/toc/muscle-strength-pyramid-nutrition-3.jpg"
+  ],
+  "aas (anabolic androgenic steroid) handbook": [
+    "images/toc/aas-handbook-1.jpg"
+  ],
+  "nsca's guide to sport and exercise nutrition": [
+    "images/toc/nsca-sport-nutrition-1.jpg",
+    "images/toc/nsca-sport-nutrition-2.jpg"
+  ],
+  "bodybuilding: the complete contest preparation handbook": [
+    "images/toc/bodybuilding-contest-prep-1.jpg",
+    "images/toc/bodybuilding-contest-prep-2.jpg",
+    "images/toc/bodybuilding-contest-prep-3.jpg",
+    "images/toc/bodybuilding-contest-prep-4.jpg"
+  ],
+  "train smarter, not longer": [
+    "images/toc/train-smarter-not-longer-1.jpg",
+    "images/toc/train-smarter-not-longer-2.jpg",
+    "images/toc/train-smarter-not-longer-3.jpg"
+  ],
+  "advanced sports nutrition (3rd edition)": [
+    "images/toc/advanced-sports-nutrition-1.jpg",
+    "images/toc/advanced-sports-nutrition-2.jpg",
+    "images/toc/advanced-sports-nutrition-3.jpg",
+    "images/toc/advanced-sports-nutrition-4.jpg"
+  ],
+  "the renaissance diet 2.0": [
+    "images/toc/renaissance-diet-1.jpg",
+    "images/toc/renaissance-diet-2.jpg"
+  ],
+  "the language of coaching": [
+    "images/toc/language-of-coaching-1.jpg",
+    "images/toc/language-of-coaching-2.jpg",
+    "images/toc/language-of-coaching-3.jpg"
+  ],
+  "the ultimate guide to body recomposition": [
+    "images/toc/body-recomposition-1.jpg",
+    "images/toc/body-recomposition-2.jpg"
+  ],
+  "ignite the fire": [
+    "images/toc/ignite-the-fire-1.jpg"
+  ],
+  "how not to die": [
+    "images/toc/how-not-to-die-1.jpg",
+    "images/toc/how-not-to-die-2.jpg"
+  ],
+  "deep nutrition": [
+    "images/toc/deep-nutrition-1.jpg",
+    "images/toc/deep-nutrition-2.jpg",
+    "images/toc/deep-nutrition-3.jpg"
+  ],
   "built from broken": [
     "images/toc/built-from-broken-1.jpg"
   ],
