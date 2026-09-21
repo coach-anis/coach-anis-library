@@ -14,6 +14,65 @@
  * ثم أضف المسارات هنا فقط — لا حاجة لتعديل index.html
  */
 window.bookTocImages = {
+  "anabolic steroids": [
+    "images/toc/anabolic-steroids-1.jpg",
+    "images/toc/anabolic-steroids-2.jpg",
+    "images/toc/anabolic-steroids-3.jpg"
+  ],
+  "william llewellyn's anabolics": [
+    "images/toc/anabolics-1.jpg",
+    "images/toc/anabolics-2.jpg",
+    "images/toc/anabolics-3.jpg",
+    "images/toc/anabolics-4.jpg",
+    "images/toc/anabolics-5.jpg",
+    "images/toc/anabolics-6.jpg",
+    "images/toc/anabolics-7.jpg",
+    "images/toc/anabolics-8.jpg"
+  ],
+  "essentials of strength training and conditioning (5th edition)": [
+    "images/toc/essentials-strength-conditioning-1.jpg",
+    "images/toc/essentials-strength-conditioning-2.jpg",
+    "images/toc/essentials-strength-conditioning-3.jpg",
+    "images/toc/essentials-strength-conditioning-4.jpg",
+    "images/toc/essentials-strength-conditioning-5.jpg",
+    "images/toc/essentials-strength-conditioning-6.jpg",
+    "images/toc/essentials-strength-conditioning-7.jpg",
+    "images/toc/essentials-strength-conditioning-8.jpg",
+    "images/toc/essentials-strength-conditioning-9.jpg"
+  ],
+  "sports nutrition (issa 5th edition)": [
+    "images/toc/issa-nutrition-1.jpg"
+  ],
+  "sport nutrition (3rd edition)": [
+    "images/toc/sport-nutrition-1.jpg",
+    "images/toc/sport-nutrition-2.jpg",
+    "images/toc/sport-nutrition-3.jpg",
+    "images/toc/sport-nutrition-4.jpg",
+    "images/toc/sport-nutrition-5.jpg"
+  ],
+  "science and practice of strength training (3rd edition)": [
+    "images/toc/science-practice-strength-training-1.jpg",
+    "images/toc/science-practice-strength-training-2.jpg",
+    "images/toc/science-practice-strength-training-3.jpg",
+    "images/toc/science-practice-strength-training-4.jpg"
+  ],
+  "science and development of muscle hypertrophy (2nd edition)": [
+    "images/toc/science-muscle-hypertrophy-1.jpg",
+    "images/toc/science-muscle-hypertrophy-2.jpg"
+  ],
+  "principles and practice of resistance training": [
+    "images/toc/principles-practice-resistance-training-1.jpg",
+    "images/toc/principles-practice-resistance-training-2.jpg"
+  ],
+  "physiology of sport and exercise (5th edition)": [
+    "images/toc/physiology-sport-exercise-1.jpg",
+    "images/toc/physiology-sport-exercise-2.jpg",
+    "images/toc/physiology-sport-exercise-3.jpg"
+  ],
+  "essentials of sports nutrition and supplements study guide": [
+    "images/toc/essentials-sports-nutrition-supplements-1.jpg",
+    "images/toc/essentials-sports-nutrition-supplements-2.jpg"
+  ],
   "essentials of human nutrition (4th edition)": [
     "images/toc/essentials-human-nutrition-1.jpg",
     "images/toc/essentials-human-nutrition-2.jpg",
