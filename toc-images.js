@@ -14,6 +14,59 @@
  * ثم أضف المسارات هنا فقط — لا حاجة لتعديل index.html
  */
 window.bookTocImages = {
+  "advanced neuromuscular exercise physiology": [
+    "images/toc/advanced-neuromuscular-exercise-physiology-1.jpg",
+    "images/toc/advanced-neuromuscular-exercise-physiology-2.jpg",
+    "images/toc/advanced-neuromuscular-exercise-physiology-3.jpg"
+  ],
+  "the muscle & strength pyramid: training (3rd edition)": [
+    "images/toc/muscle-strength-pyramid-training-1.jpg",
+    "images/toc/muscle-strength-pyramid-training-2.jpg",
+    "images/toc/muscle-strength-pyramid-training-3.jpg"
+  ],
+  "advanced nutrition and human metabolism (8th edition)": [
+    "images/toc/advanced-nutrition-human-metabolism-1.jpg"
+  ],
+  "periodization: theory and methodology of training (6th edition)": [
+    "images/toc/periodization-theory-methodology-1.jpg",
+    "images/toc/periodization-theory-methodology-2.jpg",
+    "images/toc/periodization-theory-methodology-3.jpg",
+    "images/toc/periodization-theory-methodology-4.jpg"
+  ],
+  "be your own bodybuilding coach": [
+    "images/toc/be-your-own-bodybuilding-coach-1.jpg",
+    "images/toc/be-your-own-bodybuilding-coach-2.jpg",
+    "images/toc/be-your-own-bodybuilding-coach-3.jpg",
+    "images/toc/be-your-own-bodybuilding-coach-4.jpg",
+    "images/toc/be-your-own-bodybuilding-coach-5.jpg",
+    "images/toc/be-your-own-bodybuilding-coach-6.jpg"
+  ],
+  "level up": [
+    "images/toc/level-up-1.jpg",
+    "images/toc/level-up-2.jpg"
+  ],
+  "issa certified personal trainer (10th edition)": [
+    "images/toc/issa-cpt-1.jpg",
+    "images/toc/issa-cpt-2.jpg"
+  ],
+  "practical programming for strength training (3rd edition)": [
+    "images/toc/practical-programming-strength-1.jpg",
+    "images/toc/practical-programming-strength-2.jpg",
+    "images/toc/practical-programming-strength-3.jpg",
+    "images/toc/practical-programming-strength-4.jpg",
+    "images/toc/practical-programming-strength-5.jpg",
+    "images/toc/practical-programming-strength-6.jpg",
+    "images/toc/practical-programming-strength-7.jpg"
+  ],
+  "peptide mastery: your guide to perfecting peptides": [
+    "images/toc/peptide-mastery-1.jpg"
+  ],
+  "underground peptides handbook": [
+    "images/toc/underground-peptides-handbook-1.jpg"
+  ],
+  "viva la enhanced man: the basic map work for how to properly cycle": [
+    "images/toc/viva-la-enhanced-man-1.jpg"
+  ],
   "anabolic steroids": [
     "images/toc/anabolic-steroids-1.jpg",
     "images/toc/anabolic-steroids-2.jpg",
