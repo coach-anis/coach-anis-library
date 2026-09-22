@@ -914,6 +914,110 @@
     .detail-desc{ font-size:14.5px; line-height:1.95; }
   }
 
+
+  /* ===== Related books (horizontal scroll) ===== */
+  .detail-related-box{
+    margin-top: 18px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 0 16px;
+    display: none;
+  }
+  .detail-related-box.visible{ display: block; }
+  .detail-related-label{
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    text-align: center;
+    padding: 0 14px;
+  }
+  .detail-related-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 14px 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) var(--bg-soft);
+  }
+  .detail-related-grid::-webkit-scrollbar{ height: 6px; }
+  .detail-related-grid::-webkit-scrollbar-track{
+    background: var(--bg-soft);
+    border-radius: 6px;
+  }
+  .detail-related-grid::-webkit-scrollbar-thumb{
+    background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+    border-radius: 6px;
+  }
+  .related-card{
+    flex: 0 0 auto;
+    width: 118px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+  }
+  .related-card:hover{
+    border-color: rgba(201,161,90,0.55);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px -12px rgba(0,0,0,0.45);
+  }
+  .related-card-cover{
+    aspect-ratio: 3/4;
+    background: #000;
+    overflow: hidden;
+  }
+  .related-card-cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .related-card-body{
+    padding: 7px 7px 9px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .related-card-title{
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: var(--text);
+  }
+  .related-card-price{
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    color: var(--gold-bright);
+    margin-top: auto;
+  }
+  @media (min-width:640px){
+    .related-card{ width: 132px; }
+    .related-card-title{ font-size: 12px; }
+    .related-card-price{ font-size: 13px; }
+  }
+
   /* ===== Light Theme ===== */
   body.light {
     --bg: #f5f2eb;
@@ -2124,6 +2228,19 @@
       </div>
     </div>
   </article>
+<article class="book-card" data-title="sarms and peptides beginner handbook" data-cat="advanced peds">
+    <div class="book-cover">
+      <img src="images/cover_033_a4273bd7fcf6.jpg" loading="lazy" alt="SARMs & Peptides Beginner Handbook">
+    </div>
+    <div class="book-body">
+      <div class="book-title">SARMs & Peptides Beginner Handbook</div>
+      <div class="book-footer">
+        <div class="book-price">1000<small class="currency">دج</small></div>
+        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+      </div>
+    </div>
+  </article>
 <article class="book-card" data-title="the art of lifting" data-cat="strength beginner bodybuilding">
     <div class="book-cover">
       <img src="images/cover_028_4328f272f81e.jpg" loading="lazy" alt="غلاف كتاب The Art of Lifting">
@@ -2683,19 +2800,6 @@
       </div>
     </div>
   </article>
-<article class="book-card" data-title="sarms and peptides beginner handbook" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_033_a4273bd7fcf6.jpg" loading="lazy" alt="SARMs & Peptides Beginner Handbook">
-    </div>
-    <div class="book-body">
-      <div class="book-title">SARMs & Peptides Beginner Handbook</div>
-      <div class="book-footer">
-        <div class="book-price">1000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
 <article class="book-card" data-title="steroids and other drugs used to enhance performance and image" data-cat="advanced peds">
     <div class="book-cover">
       <img src="images/cover_047_d480595b358b.jpg" loading="lazy" alt="Steroids + Other Drugs Used to Enhance Performance and Image">
@@ -2722,12 +2826,12 @@
       </div>
     </div>
   </article>
-<article class="book-card" data-title="underground injectable steroid handbook" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_042_999142400e67.jpg" loading="lazy" alt="Underground Injectable Steroid Handbook">
+<article class="book-card" data-title="peptides handbook" data-cat="advanced peds">
+    <div class="book-cover cover-full">
+      <img src="images/cover_041_f6371d527f8a.jpg" loading="lazy" alt="Peptides Handbook">
     </div>
     <div class="book-body">
-      <div class="book-title">Underground Injectable Steroid Handbook</div>
+      <div class="book-title">Underground Peptides Handbook</div>
       <div class="book-footer">
         <div class="book-price">3200<small class="currency">دج</small></div>
         <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
@@ -2735,12 +2839,12 @@
       </div>
     </div>
   </article>
-<article class="book-card" data-title="peptides handbook" data-cat="advanced peds">
-    <div class="book-cover cover-full">
-      <img src="images/cover_041_f6371d527f8a.jpg" loading="lazy" alt="Peptides Handbook">
+<article class="book-card" data-title="underground injectable steroid handbook" data-cat="advanced peds">
+    <div class="book-cover">
+      <img src="images/cover_042_999142400e67.jpg" loading="lazy" alt="Underground Injectable Steroid Handbook">
     </div>
     <div class="book-body">
-      <div class="book-title">Underground Peptides Handbook</div>
+      <div class="book-title">Underground Injectable Steroid Handbook</div>
       <div class="book-footer">
         <div class="book-price">3200<small class="currency">دج</small></div>
         <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
@@ -2813,15 +2917,15 @@
       </div>
     </div>
   </article>
-<article class="book-card" data-title="essentials of strength training and conditioning (5th edition)" data-cat="strength advanced certs">
-    <div class="book-cover">
-      <img src="images/cover_059_0543da53974b.jpg" loading="lazy" alt="غلاف كتاب Essentials of Strength Training and Conditioning (5th Edition)">
+<article class="book-card" data-title="j3 university modules collection" data-cat="advanced peds certs">
+    <div class="book-cover cover-full">
+      <img src="images/cover_062_c4f55cd1002a.jpg" loading="lazy" alt="J3 University Modules Collection">
     </div>
     <div class="book-body">
-      <div class="book-title">Essentials of Strength Training and Conditioning (5th Edition)</div>
+      <div class="book-title">J3 University Modules Collection</div>
       <div class="book-footer">
-        <div class="book-price">8000<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+        <div class="book-price">4000<small class="currency">دج</small></div>
+        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
         <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
@@ -2839,15 +2943,15 @@
       </div>
     </div>
   </article>
-<article class="book-card" data-title="j3 university modules collection" data-cat="advanced peds certs">
-    <div class="book-cover cover-full">
-      <img src="images/cover_062_c4f55cd1002a.jpg" loading="lazy" alt="J3 University Modules Collection">
+<article class="book-card" data-title="essentials of strength training and conditioning (5th edition)" data-cat="strength advanced certs">
+    <div class="book-cover">
+      <img src="images/cover_059_0543da53974b.jpg" loading="lazy" alt="غلاف كتاب Essentials of Strength Training and Conditioning (5th Edition)">
     </div>
     <div class="book-body">
-      <div class="book-title">J3 University Modules Collection</div>
+      <div class="book-title">Essentials of Strength Training and Conditioning (5th Edition)</div>
       <div class="book-footer">
-        <div class="book-price">4000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+        <div class="book-price">8000<small class="currency">دج</small></div>
+        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
         <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
       </div>
     </div>
@@ -2907,6 +3011,7 @@
       backBtn: "رجوع للمكتبة",
       aboutBook: "عن الكتاب",
       tocLabel: "فهرس الكتاب",
+      relatedBooks: "كتب مشابهة من نفس الفئة",
       orderTitle: "إتمام طلب الكتب",
       orderSub: "أدخل بياناتك وسنتواصل معك لتأكيد الطلب",
       orderNameLabel: "الاسم الكامل *",
@@ -2993,6 +3098,7 @@
       backBtn: "Retour à la bibliothèque",
       aboutBook: "À propos du livre",
       tocLabel: "Table des matières",
+      relatedBooks: "Livres similaires de la même catégorie",
       orderTitle: "Finaliser la commande",
       orderSub: "Entrez vos informations et nous vous contacterons pour confirmer",
       orderNameLabel: "Nom complet *",
@@ -3079,6 +3185,7 @@
       backBtn: "Back to library",
       aboutBook: "About the book",
       tocLabel: "Table of contents",
+      relatedBooks: "Similar books from the same category",
       orderTitle: "Complete your order",
       orderSub: "Enter your details and we will contact you to confirm",
       orderNameLabel: "Full name *",
@@ -3585,6 +3692,10 @@ const themeBtn = document.getElementById('themeToggle');
     <div class="detail-desc-box">
       <div class="detail-desc-label" id="detailDescLabel" data-i18n="aboutBook">عن الكتاب</div>
       <div class="detail-desc" id="detailDesc"></div>
+    </div>
+    <div class="detail-related-box" id="detailRelatedBox">
+      <div class="detail-related-label" id="detailRelatedLabel">كتب مشابهة من نفس الفئة</div>
+      <div class="detail-related-grid" id="detailRelatedGrid"></div>
     </div>
   </div>
 </div>
@@ -4728,6 +4839,69 @@ function showDetails(btn){
       tocBox.classList.add('visible');
     } else {
       tocBox.classList.remove('visible');
+    }
+  }
+
+
+  // ===== كتب مشابهة من نفس فلتر الكتاب فقط =====
+  const relatedBox = document.getElementById('detailRelatedBox');
+  const relatedGrid = document.getElementById('detailRelatedGrid');
+  const relatedLabel = document.getElementById('detailRelatedLabel');
+  if (relatedLabel) relatedLabel.textContent = t.relatedBooks || 'كتب مشابهة من نفس الفئة';
+  if (relatedBox && relatedGrid) {
+    relatedGrid.innerHTML = '';
+    // الفلاتر الرسمية في الموقع فقط
+    const FILTER_CATS = ['bodybuilding','nutrition','recipes','women','certs','peds','training-science','mindset'];
+    const currentCats = (card.getAttribute('data-cat') || '').split(/\s+/).filter(Boolean);
+    // خذ فقط الفلاتر الرسمية التي ينتمي إليها هذا الكتاب
+    const catsToMatch = currentCats.filter(function(c){ return FILTER_CATS.indexOf(c) !== -1; });
+    const allCards = Array.from(document.querySelectorAll('#shelf .book-card, .shelf .book-card'));
+    const related = [];
+    if (catsToMatch.length) {
+      allCards.forEach(function(other) {
+        if (other === card) return;
+        const otherKey = other.getAttribute('data-title') || '';
+        if (otherKey === key) return;
+        const otherCats = (other.getAttribute('data-cat') || '').split(/\s+/).filter(Boolean);
+        // يجب أن يشترك في واحد على الأقل من نفس فلاتر الكتاب الحالي
+        const shared = catsToMatch.some(function(c){ return otherCats.indexOf(c) !== -1; });
+        if (shared) related.push(other);
+      });
+    }
+    related.sort(function(a, b) {
+      const pa = parseInt((a.querySelector('.book-price') || {}).textContent || '0', 10) || 0;
+      const pb = parseInt((b.querySelector('.book-price') || {}).textContent || '0', 10) || 0;
+      return pa - pb;
+    });
+    related.slice(0, 12).forEach(function(other) {
+      const oTitle = (other.querySelector('.book-title') || {}).textContent || '';
+      const oPriceEl = other.querySelector('.book-price');
+      const oPrice = oPriceEl ? oPriceEl.innerHTML : '';
+      const oImg = other.querySelector('.book-cover img');
+      const oSrc = oImg ? oImg.src : '';
+      const oKey = other.getAttribute('data-title') || '';
+      const el = document.createElement('div');
+      el.className = 'related-card';
+      el.setAttribute('data-title', oKey);
+      el.innerHTML =
+        '<div class="related-card-cover"><img src="' + oSrc + '" alt="" loading="lazy"></div>' +
+        '<div class="related-card-body">' +
+          '<div class="related-card-title">' + String(oTitle).replace(/</g,'&lt;') + '</div>' +
+          '<div class="related-card-price">' + oPrice + '</div>' +
+        '</div>';
+      el.addEventListener('click', function() {
+        const target = document.querySelector('.book-card[data-title="' + oKey.replace(/"/g, '') + '"]');
+        if (target) {
+          const fakeBtn = target.querySelector('.details-btn') || target;
+          showDetails(fakeBtn);
+        }
+      });
+      relatedGrid.appendChild(el);
+    });
+    if (related.length) {
+      relatedBox.classList.add('visible');
+    } else {
+      relatedBox.classList.remove('visible');
     }
   }
 
