@@ -117,7 +117,7 @@ window.bookTocImages = {
     "images/toc/principles-practice-resistance-training-1.jpg",
     "images/toc/principles-practice-resistance-training-2.jpg"
   ],
-  "physiology of sport and exercise (5th edition)": [
+  "physiology of sport and exercise (6th edition)": [
     "images/toc/physiology-sport-exercise-1.jpg",
     "images/toc/physiology-sport-exercise-2.jpg",
     "images/toc/physiology-sport-exercise-3.jpg"
