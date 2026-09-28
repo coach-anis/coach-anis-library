@@ -252,6 +252,9 @@ window.bookTocImages = {
     "images/toc/exercise-physiology-3.jpg",
     "images/toc/exercise-physiology-4.jpg"
   ],
+  "5/3/1 forever": [
+    "images/toc/531-forever-1.jpg"
+  ],
   // "broccoli mum": ["images/toc/broccoli-mum-1.jpg"],
   // "fat loss guide": ["images/toc/fat-loss-guide-1.jpg"],
   // "how not to diet": ["images/toc/how-not-to-diet-1.jpg", "images/toc/how-not-to-diet-2.jpg"],
