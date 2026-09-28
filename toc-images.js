@@ -246,15 +246,6 @@ window.bookTocImages = {
     "images/toc/fat-loss-guide-1.jpg",
     "images/toc/fat-loss-guide-2.jpg"
   ],
-  "the ultimate athlete cookbook bundle (400+ recipes)": [
-    "images/toc/ultimate-athlete-cookbook-bundle-1.jpg",
-    "images/toc/ultimate-athlete-cookbook-bundle-2.jpg",
-    "images/toc/ultimate-athlete-cookbook-bundle-3.jpg",
-    "images/toc/ultimate-athlete-cookbook-bundle-4.jpg",
-    "images/toc/ultimate-athlete-cookbook-bundle-5.jpg",
-    "images/toc/ultimate-athlete-cookbook-bundle-6.jpg",
-    "images/toc/ultimate-athlete-cookbook-bundle-7.jpg"
-  ],
   // "broccoli mum": ["images/toc/broccoli-mum-1.jpg"],
   // "fat loss guide": ["images/toc/fat-loss-guide-1.jpg"],
   // "how not to diet": ["images/toc/how-not-to-diet-1.jpg", "images/toc/how-not-to-diet-2.jpg"],
