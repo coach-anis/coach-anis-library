@@ -262,6 +262,10 @@ window.bookTocImages = {
     "images/toc/eat-clen-tren-hard-1.jpg",
     "images/toc/eat-clen-tren-hard-2.jpg"
   ],
+  "the little black book of workout motivation": [
+    "images/toc/little-black-book-motivation-1.jpg",
+    "images/toc/little-black-book-motivation-2.jpg"
+  ],
   // "broccoli mum": ["images/toc/broccoli-mum-1.jpg"],
   // "fat loss guide": ["images/toc/fat-loss-guide-1.jpg"],
   // "how not to diet": ["images/toc/how-not-to-diet-1.jpg", "images/toc/how-not-to-diet-2.jpg"],
