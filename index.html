@@ -2037,12 +2037,13 @@
   }
   .toc-lightbox.active{ display:flex; }
   .toc-lightbox img{
-    max-width:min(960px, 100%);
-    max-height:90vh;
+    max-width:min(960px, 92%);
+    max-height:85vh;
     object-fit:contain;
     border-radius:8px;
     box-shadow:0 20px 60px rgba(0,0,0,0.5);
     cursor:default;
+    user-select:none;
   }
   .toc-lightbox-close{
     position:absolute;
@@ -2060,8 +2061,62 @@
     align-items:center;
     justify-content:center;
     line-height:1;
+    z-index:2;
   }
   .toc-lightbox-close:hover{ background:rgba(201,161,90,0.35); border-color:var(--gold); }
+  .toc-lightbox-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.3);
+    background:rgba(0,0,0,0.5);
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
+    z-index:2;
+    transition:background .2s, border-color .2s, opacity .2s;
+    user-select:none;
+  }
+  .toc-lightbox-nav:hover{
+    background:rgba(201,161,90,0.4);
+    border-color:var(--gold);
+  }
+  .toc-lightbox-nav:disabled,
+  .toc-lightbox-nav.is-hidden{
+    opacity:0.25;
+    pointer-events:none;
+  }
+  .toc-lightbox-prev{ inset-inline-start:12px; }
+  .toc-lightbox-next{ inset-inline-end:12px; }
+  .toc-lightbox-counter{
+    position:absolute;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.55);
+    color:#ece7dd;
+    font-family:'Tajawal', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    padding:6px 14px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.15);
+    z-index:2;
+    pointer-events:none;
+  }
+  @media (max-width:480px){
+    .toc-lightbox-nav{ width:40px; height:40px; font-size:22px; }
+    .toc-lightbox-prev{ inset-inline-start:6px; }
+    .toc-lightbox-next{ inset-inline-end:6px; }
+    .toc-lightbox img{ max-height:78vh; }
+  }
 
 </style>
 
@@ -3789,7 +3844,10 @@ const themeBtn = document.getElementById('themeToggle');
 <!-- Lightbox لتكبير صور الفهرس -->
 <div class="toc-lightbox" id="tocLightbox" role="dialog" aria-modal="true" aria-label="TOC preview">
   <button type="button" class="toc-lightbox-close" id="tocLightboxClose" aria-label="Close">&times;</button>
+  <button type="button" class="toc-lightbox-nav toc-lightbox-prev" id="tocLightboxPrev" aria-label="Previous">&#8249;</button>
   <img id="tocLightboxImg" src="" alt="">
+  <button type="button" class="toc-lightbox-nav toc-lightbox-next" id="tocLightboxNext" aria-label="Next">&#8250;</button>
+  <div class="toc-lightbox-counter" id="tocLightboxCounter"></div>
 </div>
 
 <script src="toc-images.js"></script>
@@ -4941,14 +4999,14 @@ function showDetails(btn){
     const tocMap = (typeof window.bookTocImages !== 'undefined' && window.bookTocImages) ? window.bookTocImages : {};
     const tocList = tocMap[key] || tocMap[titleText.toLowerCase()] || [];
     if (Array.isArray(tocList) && tocList.length) {
-      tocList.forEach(function(src) {
+      tocList.forEach(function(src, idx) {
         if (!src) return;
         const img = document.createElement('img');
         img.src = src;
         img.alt = (t.tocLabel || 'فهرس') + ' — ' + titleText;
         img.loading = 'lazy';
         img.addEventListener('click', function() {
-          openTocLightbox(src, titleText);
+          openTocLightbox(tocList, idx, titleText);
         });
         tocGallery.appendChild(img);
       });
@@ -5055,32 +5113,106 @@ function unlockBodyScroll(){
 }
 
 
-function openTocLightbox(src, title) {
-  const lb = document.getElementById('tocLightbox');
-  const img = document.getElementById('tocLightboxImg');
-  if (!lb || !img) return;
-  img.src = src;
-  img.alt = title || '';
-  lb.classList.add('active');
+/* ===== TOC Lightbox with prev/next navigation ===== */
+window.__tocLightbox = { list: [], index: 0, title: '' };
+
+function openTocLightbox(listOrSrc, indexOrTitle, maybeTitle) {
+  var list, index, title;
+  if (Array.isArray(listOrSrc)) {
+    list = listOrSrc.filter(Boolean);
+    index = (typeof indexOrTitle === 'number') ? indexOrTitle : 0;
+    title = maybeTitle || '';
+  } else {
+    list = listOrSrc ? [listOrSrc] : [];
+    index = 0;
+    title = indexOrTitle || '';
+  }
+  if (!list.length) return;
+  if (index < 0) index = 0;
+  if (index >= list.length) index = list.length - 1;
+
+  window.__tocLightbox.list = list;
+  window.__tocLightbox.index = index;
+  window.__tocLightbox.title = title;
+  updateTocLightbox();
+  var lb = document.getElementById('tocLightbox');
+  if (lb) lb.classList.add('active');
 }
+
+function updateTocLightbox() {
+  var state = window.__tocLightbox;
+  var img = document.getElementById('tocLightboxImg');
+  var counter = document.getElementById('tocLightboxCounter');
+  var prevBtn = document.getElementById('tocLightboxPrev');
+  var nextBtn = document.getElementById('tocLightboxNext');
+  if (!img || !state.list.length) return;
+
+  var i = state.index;
+  img.src = state.list[i];
+  img.alt = (state.title || '') + ' — ' + (i + 1);
+
+  if (counter) {
+    counter.textContent = (i + 1) + ' / ' + state.list.length;
+    counter.style.display = state.list.length > 1 ? '' : 'none';
+  }
+  if (prevBtn) {
+    prevBtn.classList.toggle('is-hidden', state.list.length <= 1);
+    prevBtn.disabled = state.list.length <= 1;
+  }
+  if (nextBtn) {
+    nextBtn.classList.toggle('is-hidden', state.list.length <= 1);
+    nextBtn.disabled = state.list.length <= 1;
+  }
+}
+
+function tocLightboxNav(dir) {
+  var state = window.__tocLightbox;
+  if (!state.list || state.list.length <= 1) return;
+  state.index = (state.index + dir + state.list.length) % state.list.length;
+  updateTocLightbox();
+}
+
 function closeTocLightbox() {
-  const lb = document.getElementById('tocLightbox');
+  var lb = document.getElementById('tocLightbox');
   if (lb) lb.classList.remove('active');
-  const img = document.getElementById('tocLightboxImg');
+  var img = document.getElementById('tocLightboxImg');
   if (img) img.src = '';
+  window.__tocLightbox = { list: [], index: 0, title: '' };
 }
+
 document.addEventListener('DOMContentLoaded', function() {
-  const lb = document.getElementById('tocLightbox');
-  const closeBtn = document.getElementById('tocLightboxClose');
+  var lb = document.getElementById('tocLightbox');
+  var closeBtn = document.getElementById('tocLightboxClose');
+  var prevBtn = document.getElementById('tocLightboxPrev');
+  var nextBtn = document.getElementById('tocLightboxNext');
+
   if (closeBtn) closeBtn.addEventListener('click', function(e) {
     e.stopPropagation();
     closeTocLightbox();
+  });
+  if (prevBtn) prevBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    tocLightboxNav(-1);
+  });
+  if (nextBtn) nextBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    tocLightboxNav(1);
   });
   if (lb) lb.addEventListener('click', function(e) {
     if (e.target === lb) closeTocLightbox();
   });
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeTocLightbox();
+    var lbEl = document.getElementById('tocLightbox');
+    if (!lbEl || !lbEl.classList.contains('active')) return;
+    if (e.key === 'Escape') {
+      closeTocLightbox();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      // RTL: visually "next" is left in Arabic, but keep logical: Left = prev in LTR, reverse in RTL
+      var isRtl = document.documentElement.dir === 'rtl';
+      if (e.key === 'ArrowLeft') tocLightboxNav(isRtl ? 1 : -1);
+      else tocLightboxNav(isRtl ? -1 : 1);
+    }
   });
 });
 
