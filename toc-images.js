@@ -273,6 +273,10 @@ window.bookTocImages = {
   "guyton and hall textbook of medical physiology": [
     "images/toc/guyton-hall-physiology-1.jpg"
   ],
+  "juggernaut squat deadlift manual": [
+    "images/toc/juggernaut-squat-deadlift-1.jpg",
+    "images/toc/juggernaut-squat-deadlift-2.jpg"
+  ],
   // "broccoli mum": ["images/toc/broccoli-mum-1.jpg"],
   // "fat loss guide": ["images/toc/fat-loss-guide-1.jpg"],
   // "how not to diet": ["images/toc/how-not-to-diet-1.jpg", "images/toc/how-not-to-diet-2.jpg"],
