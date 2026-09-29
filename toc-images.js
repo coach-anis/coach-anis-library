@@ -277,6 +277,9 @@ window.bookTocImages = {
     "images/toc/juggernaut-squat-deadlift-1.jpg",
     "images/toc/juggernaut-squat-deadlift-2.jpg"
   ],
+  "the juggernaut method 2.0": [
+    "images/toc/juggernaut-method-2-1.jpg"
+  ],
   // "broccoli mum": ["images/toc/broccoli-mum-1.jpg"],
   // "fat loss guide": ["images/toc/fat-loss-guide-1.jpg"],
   // "how not to diet": ["images/toc/how-not-to-diet-1.jpg", "images/toc/how-not-to-diet-2.jpg"],
