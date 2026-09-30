@@ -61,9 +61,6 @@ window.bookTocImages = {
   "Peptide Mastery: Your Guide to Perfecting Peptides + RETATRUTIDE": [
     "images/toc/peptide-mastery-1.jpg"
   ],
-  "underground peptides handbook": [
-    "images/toc/underground-peptides-handbook-1.jpg"
-  ],
   "viva la enhanced man: the basic map work for how to properly cycle": [
     "images/toc/viva-la-enhanced-man-1.jpg"
   ],
@@ -337,8 +334,8 @@ window.bookTocImages = {
   ],
   // "steroids and other drugs used to enhance performance and image": ["images/toc/steroids-other-drugs-1.jpg"],
   // "nasm essentials of personal fitness training 7th": ["images/toc/nasm-7th-1.jpg"],
-  // "underground injectable steroid handbook": ["images/toc/underground-injectable-1.jpg"],
-  // "peptides handbook": ["images/toc/peptides-handbook-1.jpg"],
+  //
+  //
   // "anabolic steroids": ["images/toc/anabolic-steroids-1.jpg"],
   // "jeff nippard collection": ["images/toc/jeff-nippard-1.jpg"],
   // "scientific principles of hypertrophy training": ["images/toc/scientific-hypertrophy-1.jpg"],
@@ -346,5 +343,5 @@ window.bookTocImages = {
   // "william llewellyn's anabolics": ["images/toc/william-anabolics-1.jpg"],
   // "essentials of strength training and conditioning (5th edition)": ["images/toc/essentials-strength-conditioning-1.jpg"],
   // "j3 university physique programs collection": ["images/toc/j3-physique-1.jpg"],
-  // "j3 university modules collection": ["images/toc/j3-modules-1.jpg"],
+  // "j3 university modules collection": ["images/toc/j3-modules-1.jpg"]
 };
