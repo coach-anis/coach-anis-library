@@ -326,7 +326,10 @@ window.bookTocImages = {
   // "periodization theory and methodology of training": ["images/toc/periodization-1.jpg"],
   // "issa certified personal trainer": ["images/toc/issa-cpt-1.jpg"],
   // "level up": ["images/toc/level-up-1.jpg"],
-  // "peptide mastery": ["images/toc/peptide-mastery-1.jpg"],
+  "peptide mastery": [
+    "images/toc/peptide-mastery-1.jpg",
+    "images/toc/peptide-mastery-2.jpg"
+  ],
   // "practical programming for strength training (3rd edition)": ["images/toc/practical-programming-1.jpg"],
   "sarms and peptides beginner handbook": [
     "images/toc/sarms-peptides-beginner-1.jpg",
