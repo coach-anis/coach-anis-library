@@ -4589,9 +4589,29 @@ function toggleCartPanel() {
 
 function checkoutCart() {
   if (!cart.length) return;
-  const titles = cart.map(function(c) { return c.title || c.key; }).join('\n• ');
-  const booksText = '• ' + titles;
-  openOrderForm(booksText, true);
+  // Direct to WhatsApp — no name/phone form
+  let msg = 'طلب كتب جديد — Coach Anis Library\n\n';
+  msg += 'الكتب المطلوبة:\n';
+  let total = 0;
+  cart.forEach(function(c, i) {
+    var title = c.title || c.name || 'كتاب';
+    var price = Number(c.price) || 0;
+    total += price;
+    msg += (i + 1) + ') ' + title + ' — ' + price + ' دج\n';
+  });
+  var qualifies = cart.length >= 3;
+  var discountAmt = qualifies ? Math.round(total * 0.20) : 0;
+  var finalTotal = total - discountAmt;
+  msg += '\nعدد الكتب: ' + cart.length + '\n';
+  msg += 'المجموع: ' + total + ' دج\n';
+  if (qualifies) {
+    msg += 'الخصم (20%): -' + discountAmt + ' دج\n';
+    msg += 'المبلغ المستحق: ' + finalTotal + ' دج\n';
+  }
+  var waUrl = getWhatsAppOrderUrl(msg);
+  window.__lastWaOrderUrl = waUrl;
+  openWhatsAppUrl(waUrl);
+  try { if (typeof clearCart === 'function') clearCart(); } catch (e) {}
 }
 
 document.addEventListener('DOMContentLoaded', function() {
