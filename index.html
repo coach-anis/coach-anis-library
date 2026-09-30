@@ -3752,7 +3752,7 @@ const themeBtn = document.getElementById('themeToggle');
       <input type="hidden" name="_subject" value="طلب كتب جديد — Coach Anis Library">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_format" value="plain">
+      <input type="hidden" name="_next" id="orderNextUrl" value="">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
       <p class="order-hint" id="orderLatinNotice" style="margin-bottom:12px;text-align:center;color:var(--gold-bright);font-weight:600">
@@ -4865,99 +4865,69 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
     }
 
     const submitBtn = document.getElementById('orderSubmitBtn');
-    const originalBtnText = submitBtn ? submitBtn.textContent : '';
     if(submitBtn){
       submitBtn.disabled = true;
       submitBtn.textContent = '...';
     }
 
-    const formData = new FormData(orderFormEl);
-    if(!formData.get('_subject')){
-      formData.set('_subject', 'طلب كتب جديد — Coach Anis Library');
-    }
-    // Help FormSubmit deliver reliably
-    formData.set('_captcha', 'false');
-    formData.set('_template', 'table');
-
-    const actionUrl = orderFormEl.getAttribute('action') || '';
-    const ajaxUrl = actionUrl.indexOf('formsubmit.co/ajax/') >= 0
-      ? actionUrl
-      : actionUrl.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
-
-    function finishOk(){
-      showOrderSuccess();
-    }
-    function finishFail(err){
-      console.error('Order submit failed:', err);
-      // Backup only: open WhatsApp when email truly fails
-      if(typeof fallbackWhatsApp === 'function'){
-        fallbackWhatsApp();
-      }
+    // Return URL after FormSubmit accepts the order
+    var nextInput = document.getElementById('orderNextUrl');
+    if(nextInput){
+      var base = window.location.href.split('#')[0].split('?')[0];
+      nextInput.value = base + '?order=ok';
     }
 
-    // No short abort timeout — FormSubmit can take 15–20s; aborting was a main false-failure cause
-    fetch(ajaxUrl, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(function(res){
-      // Read as text first so non-JSON bodies do not crash the flow
-      return res.text().then(function(text){
-        var data = null;
-        try { data = text ? JSON.parse(text) : null; } catch(parseErr) { data = null; }
-        return { status: res.status, ok: res.ok, data: data, text: text };
-      });
-    })
-    .then(function(result){
-      console.log('FormSubmit result:', result.status, result.data || result.text);
+    // Clear cart before leaving page
+    if(window.__orderFromCart){
+      try {
+        if(typeof clearCart === 'function') clearCart();
+      } catch(err) {}
+      try { localStorage.removeItem('coachAnisCart'); } catch(err2) {}
+      window.__orderFromCart = false;
+    }
 
-      // Explicit rejection from FormSubmit
-      if(result.data && (result.data.success === false || result.data.success === 'false')){
-        throw new Error(result.data.message || 'FormSubmit success=false');
-      }
-
-      // Confirmed success
-      if(result.data && (result.data.success === true || result.data.success === 'true')){
-        finishOk();
-        return;
-      }
-
-      // HTTP 2xx without clear JSON — treat as delivered (some FormSubmit responses are empty/odd but mail is sent)
-      if(result.ok || (result.status >= 200 && result.status < 300)){
-        finishOk();
-        return;
-      }
-
-      throw new Error('HTTP ' + result.status + ' ' + (result.text || '').slice(0, 120));
-    })
-    .catch(function(err){
-      finishFail(err);
-    })
-    .finally(function(){
-      if(submitBtn){
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
-      }
-    });
+    // Native browser POST to FormSubmit (primary email path).
+    // Does NOT open WhatsApp. FormSubmit emails you then redirects back with ?order=ok
+    orderFormEl.submit();
   });
 
   function showOrderSuccess(){
     const form = document.getElementById('orderForm');
     const success = document.getElementById('orderSuccess');
     const note = document.getElementById('orderSuccessFallbackNote');
-    if(form) form.classList.add('hidden');
-    if(success) success.classList.add('active');
+    const modal = document.getElementById('orderModal');
+    if(form){
+      form.classList.add('hidden');
+      form.style.display = 'none';
+    }
+    if(success){
+      success.classList.add('active');
+      success.style.display = 'block';
+    }
     if(note){
       note.style.display = 'none';
       note.textContent = '';
       note.innerHTML = '';
     }
-    if(window.__orderFromCart){
-      if(typeof clearCart === 'function') clearCart();
-      window.__orderFromCart = false;
+    if(modal){
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
   }
+
+  // Coming back from FormSubmit redirect
+  (function checkOrderSuccessRedirect(){
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      if(params.get('order') === 'ok'){
+        showOrderSuccess();
+        if(window.history && history.replaceState){
+          history.replaceState(null, '', window.location.pathname + (window.location.hash || ''));
+        }
+      }
+    } catch(e) {}
+  })();
+
 
 })();
 
