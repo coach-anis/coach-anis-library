@@ -3752,6 +3752,7 @@ const themeBtn = document.getElementById('themeToggle');
       <input type="hidden" name="_subject" value="طلب كتب جديد — Coach Anis Library">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_format" value="plain">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
       <p class="order-hint" id="orderLatinNotice" style="margin-bottom:12px;text-align:center;color:var(--gold-bright);font-weight:600">
@@ -4768,19 +4769,17 @@ function openWhatsAppUrl(waUrl){
   }
   var w = null;
   try { w = window.open(waUrl, '_blank'); } catch(e) { w = null; }
-  if(!w){
-    window.location.href = waUrl;
-  }
+  if(!w) window.location.href = waUrl;
 }
 
-/** Email failed → open WhatsApp automatically (no success screen with error text) */
+/** Backup only — called when FormSubmit/email fails */
 function fallbackWhatsApp(){
   const msg = buildOrderMessage();
   const waUrl = getWhatsAppOrderUrl(msg);
   window.__lastWaOrderUrl = waUrl;
   openWhatsAppUrl(waUrl);
   if(window.__orderFromCart){
-    try { clearCart(); } catch(e) {}
+    try { if(typeof clearCart === 'function') clearCart(); } catch(e) {}
     window.__orderFromCart = false;
   }
 }
@@ -4873,43 +4872,69 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
     }
 
     const formData = new FormData(orderFormEl);
-    // Ensure subject is set
-    if(!formData.get('_subject')) formData.set('_subject', 'طلب كتب جديد — Coach Anis Library');
-    const actionUrl = orderFormEl.getAttribute('action');
-    const ajaxUrl = actionUrl.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+    if(!formData.get('_subject')){
+      formData.set('_subject', 'طلب كتب جديد — Coach Anis Library');
+    }
+    // Help FormSubmit deliver reliably
+    formData.set('_captcha', 'false');
+    formData.set('_template', 'table');
 
-    // Timeout so mobile users are not stuck if FormSubmit hangs
-    const controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
-    const timeoutId = controller ? setTimeout(function(){ try { controller.abort(); } catch(e){} }, 12000) : null;
+    const actionUrl = orderFormEl.getAttribute('action') || '';
+    const ajaxUrl = actionUrl.indexOf('formsubmit.co/ajax/') >= 0
+      ? actionUrl
+      : actionUrl.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
 
-    const fetchOpts = {
+    function finishOk(){
+      showOrderSuccess();
+    }
+    function finishFail(err){
+      console.error('Order submit failed:', err);
+      // Backup only: open WhatsApp when email truly fails
+      if(typeof fallbackWhatsApp === 'function'){
+        fallbackWhatsApp();
+      }
+    }
+
+    // No short abort timeout — FormSubmit can take 15–20s; aborting was a main false-failure cause
+    fetch(ajaxUrl, {
       method: 'POST',
       body: formData,
       headers: { 'Accept': 'application/json' }
-    };
-    if(controller) fetchOpts.signal = controller.signal;
-
-    fetch(ajaxUrl, fetchOpts)
-    .then(function(res){
-      if(!res.ok) throw new Error('http status ' + res.status);
-      return res.json();
     })
-    .then(function(data){
-      console.log('FormSubmit response:', data);
-      var ok = data && (data.success === 'true' || data.success === true);
-      if(ok){
-        showOrderSuccess();
-      } else {
-        throw new Error('FormSubmit did not confirm success: ' + JSON.stringify(data));
+    .then(function(res){
+      // Read as text first so non-JSON bodies do not crash the flow
+      return res.text().then(function(text){
+        var data = null;
+        try { data = text ? JSON.parse(text) : null; } catch(parseErr) { data = null; }
+        return { status: res.status, ok: res.ok, data: data, text: text };
+      });
+    })
+    .then(function(result){
+      console.log('FormSubmit result:', result.status, result.data || result.text);
+
+      // Explicit rejection from FormSubmit
+      if(result.data && (result.data.success === false || result.data.success === 'false')){
+        throw new Error(result.data.message || 'FormSubmit success=false');
       }
+
+      // Confirmed success
+      if(result.data && (result.data.success === true || result.data.success === 'true')){
+        finishOk();
+        return;
+      }
+
+      // HTTP 2xx without clear JSON — treat as delivered (some FormSubmit responses are empty/odd but mail is sent)
+      if(result.ok || (result.status >= 200 && result.status < 300)){
+        finishOk();
+        return;
+      }
+
+      throw new Error('HTTP ' + result.status + ' ' + (result.text || '').slice(0, 120));
     })
     .catch(function(err){
-      console.error('Order submit failed:', err);
-      // Do NOT auto-open WhatsApp — show message + optional link only
-      fallbackWhatsApp(false);
+      finishFail(err);
     })
     .finally(function(){
-      if(timeoutId) clearTimeout(timeoutId);
       if(submitBtn){
         submitBtn.disabled = false;
         submitBtn.textContent = originalBtnText;
@@ -4933,6 +4958,7 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
       window.__orderFromCart = false;
     }
   }
+
 })();
 
 window.currentDetailCard = null;
