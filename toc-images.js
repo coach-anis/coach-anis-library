@@ -331,10 +331,6 @@ window.bookTocImages = {
     "images/toc/peptide-mastery-2.jpg"
   ],
   // "practical programming for strength training (3rd edition)": ["images/toc/practical-programming-1.jpg"],
-  "sarms and peptides beginner handbook": [
-    "images/toc/sarms-peptides-beginner-1.jpg",
-    "images/toc/sarms-peptides-beginner-2.jpg"
-  ],
   // "steroids and other drugs used to enhance performance and image": ["images/toc/steroids-other-drugs-1.jpg"],
   // "nasm essentials of personal fitness training 7th": ["images/toc/nasm-7th-1.jpg"],
   //
