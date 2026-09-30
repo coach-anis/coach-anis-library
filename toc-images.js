@@ -280,6 +280,9 @@ window.bookTocImages = {
   "the juggernaut method 2.0": [
     "images/toc/juggernaut-method-2-1.jpg"
   ],
+  "program design manual": [
+    "images/toc/program-design-manual-1.jpg"
+  ],
   // "broccoli mum": ["images/toc/broccoli-mum-1.jpg"],
   // "fat loss guide": ["images/toc/fat-loss-guide-1.jpg"],
   // "how not to diet": ["images/toc/how-not-to-diet-1.jpg", "images/toc/how-not-to-diet-2.jpg"],
