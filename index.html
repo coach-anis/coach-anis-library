@@ -3746,7 +3746,7 @@ const themeBtn = document.getElementById('themeToggle');
     <p class="order-sub" id="orderSub" data-i18n="orderSub">أدخل بياناتك وسنتواصل معك لتأكيد الطلب</p>
 
     <form class="order-form" id="orderForm"
-          action="https://formsubmit.co/anisbitam21@gmail.com"
+          action="#"
           method="POST"
           accept-charset="UTF-8">
       <input type="hidden" name="_subject" value="طلب كتب جديد — Coach Anis Library">
@@ -4727,30 +4727,42 @@ function buyFromDetail(){
 function buildOrderMessage(){
   const name = (document.getElementById('orderName') || {}).value || '';
   const phone = (document.getElementById('orderPhone') || {}).value || '';
-  const book = (document.getElementById('orderBook') || {}).value || currentOrderBook || '';
   const notes = (document.getElementById('orderNotes') || {}).value || '';
   let msg = 'طلب كتب جديد — Coach Anis Library\n\n';
   msg += 'الاسم: ' + name + '\n';
-  msg += 'الهاتف/واتساب: ' + phone + '\n';
-  msg += 'الكتب:\n' + book + '\n';
-  if(notes.trim()) msg += 'ملاحظات: ' + notes + '\n';
+  msg += 'الهاتف/واتساب: ' + phone + '\n\n';
+
+  // Prefer live cart data (title + price)
   if(typeof cart !== 'undefined' && cart && cart.length){
+    msg += 'الكتب المطلوبة:\n';
     let total = 0;
-    cart.forEach(function(c){ total += (c.price || 0); });
-    const qualifies = cart.length >= 3;
-    const discountAmt = qualifies ? Math.round(total * 0.20) : 0;
-    const finalTotal = total - discountAmt;
-    msg += 'عدد الكتب: ' + cart.length + '\n';
-    msg += 'المجموع قبل الخصم: ' + total + ' دج\n';
+    cart.forEach(function(c, i){
+      var title = c.title || c.name || 'كتاب';
+      var price = Number(c.price) || 0;
+      total += price;
+      msg += (i + 1) + ') ' + title + ' — ' + price + ' دج\n';
+    });
+    var qualifies = cart.length >= 3;
+    var discountAmt = qualifies ? Math.round(total * 0.20) : 0;
+    var finalTotal = total - discountAmt;
+    msg += '\nعدد الكتب: ' + cart.length + '\n';
+    msg += 'المجموع: ' + total + ' دج\n';
     if(qualifies){
       msg += 'الخصم (20%): -' + discountAmt + ' دج\n';
       msg += 'المبلغ المستحق: ' + finalTotal + ' دج\n';
-    } else {
-      msg += 'المجموع: ' + total + ' دج\n';
     }
+  } else {
+    // Single book / fallback from textarea
+    const book = (document.getElementById('orderBook') || {}).value || (typeof currentOrderBook !== 'undefined' ? currentOrderBook : '') || '';
+    msg += 'الكتب المطلوبة:\n' + book + '\n';
+  }
+
+  if(notes && notes.trim()){
+    msg += '\nملاحظات: ' + notes.trim() + '\n';
   }
   return msg;
 }
+
 function isMobileDevice(){
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || '')
     || (navigator.maxTouchPoints > 0 && window.innerWidth < 900);
@@ -4772,7 +4784,6 @@ function openWhatsAppUrl(waUrl){
   if(!w) window.location.href = waUrl;
 }
 
-/** Backup only — called when FormSubmit/email fails */
 function fallbackWhatsApp(){
   const msg = buildOrderMessage();
   const waUrl = getWhatsAppOrderUrl(msg);
@@ -4870,25 +4881,23 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
       submitBtn.textContent = '...';
     }
 
-    // Return URL after FormSubmit accepts the order
-    var nextInput = document.getElementById('orderNextUrl');
-    if(nextInput){
-      var base = window.location.href.split('#')[0].split('?')[0];
-      nextInput.value = base + '?order=ok';
+    // Primary & only method: open WhatsApp with full order details
+    try {
+      if(typeof fallbackWhatsApp === 'function'){
+        fallbackWhatsApp();
+      } else {
+        var msg = buildOrderMessage();
+        var url = getWhatsAppOrderUrl(msg);
+        openWhatsAppUrl(url);
+      }
+    } finally {
+      if(submitBtn){
+        submitBtn.disabled = false;
+        var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ar';
+        var t = (typeof I18N !== 'undefined' && I18N[lang]) ? I18N[lang] : {};
+        submitBtn.textContent = t.orderSubmit || 'إرسال الطلب';
+      }
     }
-
-    // Clear cart before leaving page
-    if(window.__orderFromCart){
-      try {
-        if(typeof clearCart === 'function') clearCart();
-      } catch(err) {}
-      try { localStorage.removeItem('coachAnisCart'); } catch(err2) {}
-      window.__orderFromCart = false;
-    }
-
-    // Native browser POST to FormSubmit (primary email path).
-    // Does NOT open WhatsApp. FormSubmit emails you then redirects back with ?order=ok
-    orderFormEl.submit();
   });
 
   function showOrderSuccess(){
@@ -4914,6 +4923,7 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
       document.body.style.overflow = 'hidden';
     }
   }
+
 
   // Coming back from FormSubmit redirect
   (function checkOrderSuccessRedirect(){
