@@ -58,7 +58,7 @@ window.bookTocImages = {
     "images/toc/practical-programming-strength-6.jpg",
     "images/toc/practical-programming-strength-7.jpg"
   ],
-  "peptide mastery: your guide to perfecting peptides": [
+  "Peptide Mastery: Your Guide to Perfecting Peptides + RETATRUTIDE": [
     "images/toc/peptide-mastery-1.jpg"
   ],
   "underground peptides handbook": [
