@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Coach Anis Library</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&amp;family=Tajawal:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
 <style>
   :root{
     --bg:#0b0b0c;
@@ -2119,979 +2120,1030 @@
   }
 
 </style>
-
 </head>
 <body>
-
 <div class="top-controls">
-  <div class="top-controls-left">
-  <button class="menu-toggle" id="menuToggle" type="button" title="Menu" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <button class="theme-toggle" id="themeToggle" title="Theme" aria-label="Theme">🌙</button>
-  </div>
-  <div class="lang-switch" id="langSwitch">
-    <button class="lang-btn active" data-lang="ar">عربي</button>
-    <button class="lang-btn" data-lang="fr">FR</button>
-    <button class="lang-btn" data-lang="en">EN</button>
-  </div>
+<div class="top-controls-left">
+<button aria-expanded="false" aria-label="Menu" class="menu-toggle" id="menuToggle" title="Menu" type="button">
+<span></span><span></span><span></span>
+</button>
+<button aria-label="Theme" class="theme-toggle" id="themeToggle" title="Theme">🌙</button>
 </div>
-<div class="top-controls-spacer" aria-hidden="true"></div>
-
+<div class="lang-switch" id="langSwitch">
+<button class="lang-btn active" data-lang="ar">عربي</button>
+<button class="lang-btn" data-lang="fr">FR</button>
+<button class="lang-btn" data-lang="en">EN</button>
+</div>
+</div>
+<div aria-hidden="true" class="top-controls-spacer"></div>
 <!-- Side Menu -->
 <div class="side-menu-overlay" id="sideMenuOverlay"></div>
-<nav class="side-menu" id="sideMenu" aria-label="Menu">
-  <div class="side-menu-header">
-    <div class="side-menu-title" id="sideMenuTitle" data-i18n="menuTitle">القائمة</div>
-    <button type="button" class="side-menu-close" id="sideMenuClose" aria-label="Close">&times;</button>
-  </div>
-  <div class="side-menu-body">
-    <div class="side-menu-section-label" data-i18n="menuMain">القائمة الرئيسية</div>
-    <button type="button" class="side-menu-item" data-menu="home" id="sideMenuHome">
-      <span data-i18n="menuHome">الصفحة الرئيسية</span>
-    </button>
-
-    <div class="side-menu-section-label" data-i18n="menuCategories">التصنيفات</div>
-    <button type="button" class="side-menu-item side-filter active" data-cat="all">
-      <span data-i18n="filterAll">الكل</span>
-    </button>
-    <button type="button" class="side-menu-item side-filter" data-cat="bodybuilding">
-      <span data-i18n="filterBodybuilding">تدريب كمال الأجسام</span>
-    </button>
-    <button type="button" class="side-menu-item side-filter" data-cat="nutrition">
-      <span data-i18n="filterNutrition">تغذية</span>
-    </button>
-    <button type="button" class="side-menu-item side-filter" data-cat="recipes">
-      <span data-i18n="filterRecipes">وصفات غذائية</span>
-    </button>
-    <button type="button" class="side-menu-item side-filter" data-cat="women">
-      <span data-i18n="filterWomen">للنساء</span>
-    </button>
-    <button type="button" class="side-menu-item side-filter" data-cat="certs">
-      <span data-i18n="filterCerts">شهادات و كورسات</span>
-    </button>
-    <button type="button" class="side-menu-item side-filter" data-cat="peds">
-      <span data-i18n="filterPeds">محسنات الأداء</span>
-    </button>
-    <button type="button" class="side-menu-item side-filter" data-cat="training-science">
-      <span data-i18n="filterTrainingScience">علوم التدريب</span>
-    </button>
-    <button type="button" class="side-menu-item side-filter" data-cat="powerlifting">
-      <span data-i18n="filterPowerlifting">باورليفتينغ</span>
-    </button>
-    <button type="button" class="side-menu-item side-filter" data-cat="mindset">
-      <span data-i18n="filterMindset">عقلية</span>
-    </button>
-  </div>
+<nav aria-label="Menu" class="side-menu" id="sideMenu">
+<div class="side-menu-header">
+<div class="side-menu-title" data-i18n="menuTitle" id="sideMenuTitle">القائمة</div>
+<button aria-label="Close" class="side-menu-close" id="sideMenuClose" type="button">×</button>
+</div>
+<div class="side-menu-body">
+<div class="side-menu-section-label" data-i18n="menuMain">القائمة الرئيسية</div>
+<button class="side-menu-item" data-menu="home" id="sideMenuHome" type="button">
+<span data-i18n="menuHome">الصفحة الرئيسية</span>
+</button>
+<div class="side-menu-section-label" data-i18n="menuCategories">التصنيفات</div>
+<button class="side-menu-item side-filter active" data-cat="all" type="button">
+<span data-i18n="filterAll">الكل</span>
+</button>
+<button class="side-menu-item side-filter" data-cat="bodybuilding" type="button">
+<span data-i18n="filterBodybuilding">تدريب كمال الأجسام</span>
+</button>
+<button class="side-menu-item side-filter" data-cat="nutrition" type="button">
+<span data-i18n="filterNutrition">تغذية</span>
+</button>
+<button class="side-menu-item side-filter" data-cat="recipes" type="button">
+<span data-i18n="filterRecipes">وصفات غذائية</span>
+</button>
+<button class="side-menu-item side-filter" data-cat="women" type="button">
+<span data-i18n="filterWomen">للنساء</span>
+</button>
+<button class="side-menu-item side-filter" data-cat="certs" type="button">
+<span data-i18n="filterCerts">شهادات و كورسات</span>
+</button>
+<button class="side-menu-item side-filter" data-cat="peds" type="button">
+<span data-i18n="filterPeds">محسنات الأداء</span>
+</button>
+<button class="side-menu-item side-filter" data-cat="training-science" type="button">
+<span data-i18n="filterTrainingScience">علوم التدريب</span>
+</button>
+<button class="side-menu-item side-filter" data-cat="powerlifting" type="button">
+<span data-i18n="filterPowerlifting">باورليفتينغ</span>
+</button>
+<button class="side-menu-item side-filter" data-cat="mindset" type="button">
+<span data-i18n="filterMindset">عقلية</span>
+</button>
+</div>
 </nav>
-
-
-
 <header>
-  <div class="brand">
-    <div class="brand-mark"><img src="images/cover_001_287b08ccaa2d.jpg" loading="lazy" alt="Coach Anis Library" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
-    <div class="brand-text">Coach Anis Library</div>
-  </div>
+<div class="brand">
+<div class="brand-mark"><img alt="Coach Anis Library" loading="lazy" src="images/cover_001_287b08ccaa2d.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/></div>
+<div class="brand-text">Coach Anis Library</div>
+</div>
 </header>
-
 <section class="hero">
-  <h1 data-i18n="heroTitle">اكتشف أفضل الكتب العالمية في علوم الرياضة و التغذية</h1>
-  <p data-i18n="heroDesc">مكتبة تضم نخبة الكتب العالمية في علوم الرياضة والصحة مع خدمة ترجمتها للغة العربية</p>
+<h1 data-i18n="heroTitle">اكتشف أفضل الكتب العالمية في علوم الرياضة و التغذية</h1>
+<p data-i18n="heroDesc">مكتبة تضم نخبة الكتب العالمية في علوم الرياضة والصحة مع خدمة ترجمتها للغة العربية</p>
 </section>
-
 <div class="search-wrap">
-  <div class="search-box">
-    <input type="text" id="bookSearch" placeholder="ابحث عن كتاب..." data-i18n-placeholder="searchPlaceholder" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="searchSuggest" aria-expanded="false">
-    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
-    <div class="search-suggest" id="searchSuggest" role="listbox"></div>
-  </div>
-  <div class="search-count" id="searchCount"></div>
+<div class="search-box">
+<input aria-autocomplete="list" aria-controls="searchSuggest" aria-expanded="false" autocomplete="off" data-i18n-placeholder="searchPlaceholder" id="bookSearch" placeholder="ابحث عن كتاب..." role="combobox" type="text"/>
+<svg aria-hidden="true" class="search-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
+<div class="search-suggest" id="searchSuggest" role="listbox"></div>
 </div>
-
+<div class="search-count" id="searchCount"></div>
+</div>
 <div class="filters" id="filters">
-  <button class="filter-btn active" data-cat="all" data-i18n="filterAll">الكل</button>
-  <button class="filter-btn" data-cat="bodybuilding" data-i18n="filterBodybuilding">تدريب كمال الأجسام</button>
-  <button class="filter-btn" data-cat="nutrition" data-i18n="filterNutrition">تغذية</button>
-  <button class="filter-btn" data-cat="recipes" data-i18n="filterRecipes">وصفات غذائية</button>
-  <button class="filter-btn" data-cat="women" data-i18n="filterWomen">للنساء</button>
-  <button class="filter-btn" data-cat="certs" data-i18n="filterCerts">شهادات و كورسات</button>
-  <button class="filter-btn" data-cat="peds" data-i18n="filterPeds">محسنات الأداء</button>
-  <button class="filter-btn" data-cat="training-science" data-i18n="filterTrainingScience">علوم التدريب</button>
-  <button class="filter-btn" data-cat="powerlifting" data-i18n="filterPowerlifting">باورليفتينغ</button>
-  <button class="filter-btn" data-cat="mindset" data-i18n="filterMindset">عقلية</button>
+<button class="filter-btn active" data-cat="all" data-i18n="filterAll">الكل</button>
+<button class="filter-btn" data-cat="bodybuilding" data-i18n="filterBodybuilding">تدريب كمال الأجسام</button>
+<button class="filter-btn" data-cat="nutrition" data-i18n="filterNutrition">تغذية</button>
+<button class="filter-btn" data-cat="recipes" data-i18n="filterRecipes">وصفات غذائية</button>
+<button class="filter-btn" data-cat="women" data-i18n="filterWomen">للنساء</button>
+<button class="filter-btn" data-cat="certs" data-i18n="filterCerts">شهادات و كورسات</button>
+<button class="filter-btn" data-cat="peds" data-i18n="filterPeds">محسنات الأداء</button>
+<button class="filter-btn" data-cat="training-science" data-i18n="filterTrainingScience">علوم التدريب</button>
+<button class="filter-btn" data-cat="powerlifting" data-i18n="filterPowerlifting">باورليفتينغ</button>
+<button class="filter-btn" data-cat="mindset" data-i18n="filterMindset">عقلية</button>
 </div>
-
 <section class="shelf" id="shelf">
-<article class="book-card" data-title="broccoli mum" data-cat="nutrition recipes women">
-    <div class="book-cover">
-      <img src="images/cover_005_487e71564d18.jpg" loading="lazy" alt="Broccoli Mum — The Maximum Weight Loss Recipe Book">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Broccoli Mum</div>
-      <div class="book-footer">
-        <div class="book-price">600<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="fat loss guide" data-cat="nutrition women">
-    <div class="book-cover">
-      <img src="images/cover_015_63b30743f936.jpg" loading="lazy" alt="Fat Loss Guide — Liftwsarah">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Fat Loss Guide</div>
-      <div class="book-footer">
-        <div class="book-price">800<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="how not to diet" data-cat="nutrition">
-    <div class="book-cover">
-      <img src="images/cover_004_cfddc295ad7b.jpg" loading="lazy" alt="غلاف كتاب How Not to Diet">
-    </div>
-    <div class="book-body">
-      <div class="book-title">How Not to Diet</div>
-      <div class="book-footer">
-        <div class="book-price">800<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="nutrition for dummies (7th edition)" data-cat="nutrition beginner">
-    <div class="book-cover">
-      <img src="images/cover_002_39c92d56f265.jpg" loading="lazy" alt="غلاف كتاب Nutrition For Dummies (7th Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Nutrition For Dummies (7th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">800<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the food safety book" data-cat="nutrition">
-    <div class="book-cover">
-      <img src="images/cover_013_e16b09b21b2d.jpg" loading="lazy" alt="The Food Safety Book — Joe Kivett">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Food Safety Book</div>
-      <div class="book-footer">
-        <div class="book-price">800<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the art of lifting" data-cat="strength beginner bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_028_4328f272f81e.jpg" loading="lazy" alt="غلاف كتاب The Art of Lifting">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Art of Lifting</div>
-      <div class="book-footer">
-        <div class="book-price">1000<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="eat like a gym girl + egg white oats" data-cat="nutrition recipes women">
-    <div class="book-cover cover-full">
-      <img src="images/cover_009_a213124eecf1.jpg" loading="lazy" alt="Eat Like a Gym Girl + Egg White Oats — Liftwsarah">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Eat Like a Gym Girl + Egg White Oats</div>
-      <div class="book-footer">
-        <div class="book-price">1200<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the biomechanics manual" data-cat="physiology strength bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_003_911dc28a2629.jpg" loading="lazy" alt="غلاف كتاب THE BIOMECHANICS MANUAL">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Biomechanics Manual</div>
-      <div class="book-footer">
-        <div class="book-price">1200<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="built from broken" data-cat="physiology programs training-science">
-    <div class="book-cover">
-      <img src="images/cover_014_31b110b2ee89.jpg" loading="lazy" alt="غلاف كتاب Built from Broken">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Built from Broken</div>
-      <div class="book-footer">
-        <div class="book-price">1500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="deep nutrition" data-cat="nutrition">
-    <div class="book-cover">
-      <img src="images/cover_032_e81a307bd385.jpg" loading="lazy" alt="Deep Nutrition — Catherine Shanahan, M.D.">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Deep Nutrition</div>
-      <div class="book-footer">
-        <div class="book-price">1500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="how not to die" data-cat="nutrition">
-    <div class="book-cover">
-      <img src="images/cover_006_3704582022a9.jpg" loading="lazy" alt="غلاف كتاب How Not to Die">
-    </div>
-    <div class="book-body">
-      <div class="book-title">How Not to Die</div>
-      <div class="book-footer">
-        <div class="book-price">1500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the ultimate guide to body recomposition" data-cat="nutrition programs">
-    <div class="book-cover">
-      <img src="images/cover_027_49c0da8f7ab5.jpg" loading="lazy" alt="The Ultimate Guide to Body Recomposition">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Ultimate Guide to Body Recomposition</div>
-      <div class="book-footer">
-        <div class="book-price">1500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="train smarter, not longer" data-cat="strength advanced bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_031_60a183238cf8.jpg" loading="lazy" alt="غلاف كتاب Train Smarter, Not Longer">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Train Smarter, Not Longer</div>
-      <div class="book-footer">
-        <div class="book-price">1500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the juggernaut method 2.0" data-cat="strength powerlifting training-science">
-    <div class="book-cover">
-      <img src="images/cover_072_juggernaut_method_2.jpg" loading="lazy" alt="The Juggernaut Method 2.0">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Juggernaut Method 2.0</div>
-      <div class="book-footer">
-        <div class="book-price">1800<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the renaissance diet 2.0" data-cat="nutrition">
-    <div class="book-cover">
-      <img src="images/cover_026_5250adf55bd8.jpg" loading="lazy" alt="The Renaissance Diet 2.0">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Renaissance Diet 2.0</div>
-      <div class="book-footer">
-        <div class="book-price">1800<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="ignite the fire" data-cat="programs mindset">
-    <div class="book-cover">
-      <img src="images/cover_021_7418a23ee13a.jpg" loading="lazy" alt="Ignite the Fire — Jonathan Goodman">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Ignite the Fire</div>
-      <div class="book-footer">
-        <div class="book-price">2000<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the ultimate athlete cookbook bundle (500+ recipes)" data-cat="nutrition recipes bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_063_ultimate_athlete_bundle.jpg" loading="lazy" alt="The Ultimate Athlete Cookbook Bundle (500+ Recipes)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Ultimate Athlete Cookbook Bundle (500+ Recipes)</div>
-      <div class="book-footer">
-        <div class="book-price">2000<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="level up" data-cat="programs beginner mindset">
-    <div class="book-cover">
-      <img src="images/cover_007_a4a44d54c1f5.jpg" loading="lazy" alt="Level Up">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Level Up</div>
-      <div class="book-footer">
-        <div class="book-price">2000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="rebuilding milo" data-cat="programs physiology training-science">
-    <div class="book-cover">
-      <img src="images/cover_030_28d18b235ba3.jpg" loading="lazy" alt="غلاف كتاب Rebuilding Milo">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Rebuilding Milo</div>
-      <div class="book-footer">
-        <div class="book-price">2200<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="program design manual" data-cat="strength powerlifting training-science">
-    <div class="book-cover">
-      <img src="images/cover_073_program_design_manual.jpg" loading="lazy" alt="Program Design Manual">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Program Design Manual</div>
-      <div class="book-footer">
-        <div class="book-price">2300<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="biomechanics of sport and exercise" data-cat="physiology strength training-science">
-    <div class="book-cover">
-      <img src="images/cover_039_1371064e6a3c.jpg" loading="lazy" alt="Biomechanics of Sport and Exercise (3rd Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Biomechanics of Sport and Exercise (3rd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">2400<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="juggernaut squat deadlift manual" data-cat="strength powerlifting training-science">
-    <div class="book-cover">
-      <img src="images/cover_071_juggernaut_squat_deadlift.jpg" loading="lazy" alt="Juggernaut Squat + Deadlift Manual">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Juggernaut Squat + Deadlift Manual</div>
-      <div class="book-footer">
-        <div class="book-price">2400<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="win" data-cat="strength advanced bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_043_57165e87fb51.jpg" loading="lazy" alt="WIN — Dr. James DiNicolantonio">
-    </div>
-    <div class="book-body">
-      <div class="book-title">WIN</div>
-      <div class="book-footer">
-        <div class="book-price">2400<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the champion's mind" data-cat="programs mindset">
-    <div class="book-cover">
-      <img src="images/cover_018_52865d124e6f.jpg" loading="lazy" alt="The Champion's Mind">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Champion's Mind</div>
-      <div class="book-footer">
-        <div class="book-price">2500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the little black book of workout motivation" data-cat="mindset">
-    <div class="book-cover">
-      <img src="images/cover_068_little_black_book_motivation.jpg" loading="lazy" alt="The Little Black Book of Workout Motivation">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Little Black Book of Workout Motivation</div>
-      <div class="book-footer">
-        <div class="book-price">2500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="essentials of human nutrition" data-cat="nutrition advanced">
-    <div class="book-cover">
-      <img src="images/cover_040_dacde3b7c3c8.jpg" loading="lazy" alt="Essentials of Human Nutrition">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Essentials of Human Nutrition (4th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">2500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="essentials of sports nutrition and supplements study guide" data-cat="nutrition advanced certs">
-    <div class="book-cover">
-      <img src="images/cover_020_4e5900efd8d2.jpg" loading="lazy" alt="Essentials of Sports Nutrition and Supplements Study Guide">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Essentials of Sports Nutrition and Supplements Study Guide</div>
-      <div class="book-footer">
-        <div class="book-price">2500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="eat clen tren hard" data-cat="advanced peds powerlifting">
-    <div class="book-cover">
-      <img src="images/cover_067_eat_clen_tren_hard.jpg" loading="lazy" alt="Eat Clen, Tren Hard — The Guide for Steroid Use in Powerlifting">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Eat Clen, Tren Hard: The Guide for Steroid Use in Powerlifting</div>
-      <div class="book-footer">
-        <div class="book-price">2500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="advanced neuromuscular exercise physiology" data-cat="physiology advanced training-science">
-    <div class="book-cover">
-      <img src="images/cover_038_732a8914b9ef.jpg" loading="lazy" alt="Advanced Neuromuscular Exercise Physiology">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Advanced Neuromuscular Exercise Physiology</div>
-      <div class="book-footer">
-        <div class="book-price">2600<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="periodization theory and methodology of training" data-cat="programs advanced strength training-science powerlifting">
-    <div class="book-cover">
-      <img src="images/cover_044_e97c592974ed.jpg" loading="lazy" alt="Periodization: Theory and Methodology of Training (6th Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Periodization: Theory and Methodology of Training (6th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">2800<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="sarms matrix" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_053_1acfdeaa6b4f.jpg" loading="lazy" alt="SARMs Matrix">
-    </div>
-    <div class="book-body">
-      <div class="book-title">SARMs Matrix: The Future of Bodybuilding Chemistry</div>
-      <div class="book-footer">
-        <div class="book-price">3000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="starting strength" data-cat="strength beginner training-science powerlifting">
-    <div class="book-cover">
-      <img src="images/cover_012_7236a50dd0bb.jpg" loading="lazy" alt="Starting Strength">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Starting Strength: Basic Barbell Training (3rd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">3000<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="bodybuilding the complete contest preparation handbook" data-cat="strength bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_029_61c82dd620b1.jpg" loading="lazy" alt="Bodybuilding: The Complete Contest Preparation Handbook">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Bodybuilding: The Complete Contest Preparation Handbook</div>
-      <div class="book-footer">
-        <div class="book-price">3000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="practical programming for strength training (3rd edition)" data-cat="strength advanced training-science powerlifting">
-    <div class="book-cover">
-      <img src="images/cover_011_3f0129d7c7f2.jpg" loading="lazy" alt="غلاف كتاب Practical Programming for Strength Training (3rd Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Practical Programming for Strength Training (3rd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">3000<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the basic map work for how to properly cycle" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_025_54ee30bba83d.jpg" loading="lazy" alt="The Basic Map Work for How to Properly Cycle">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Viva La Enhanced Man: The Basic Map Work for How to Properly Cycle</div>
-      <div class="book-footer">
-        <div class="book-price">3000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the language of coaching" data-cat="programs strength advanced mindset">
-    <div class="book-cover">
-      <img src="images/cover_017_12b6ed044ac3.jpg" loading="lazy" alt="The Language of Coaching">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Language of Coaching</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="p.e.d. cheat sheets" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_055_2345968b7446.jpg" loading="lazy" alt="P.E.D. Cheat Sheets">
-    </div>
-    <div class="book-body">
-      <div class="book-title">P.E.D. Cheat Sheets</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="trt to sports hrt" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_054_2c0417a43c62.jpg" loading="lazy" alt="TRT to Sports HRT">
-    </div>
-    <div class="book-body">
-      <div class="book-title">TRT to Sports HRT</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="building effective cycles" data-cat="advanced peds">
-    <div class="book-cover cover-full">
-      <img src="images/cover_056_8bb4fc4f57ef.jpg" loading="lazy" alt="Building Effective Cycles">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Building Effective Cycles: Cycle Design Construction</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="peptide mastery" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_046_06815c7c6feb.jpg" loading="lazy" alt="Peptide Mastery">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Peptide Mastery: Your Guide to Perfecting Peptides + RETATRUTIDE </div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="5/3/1 forever" data-cat="strength advanced bodybuilding training-science powerlifting">
-    <div class="book-cover">
-      <img src="images/cover_065_531_forever.jpg" loading="lazy" alt="5/3/1 Forever — Jim Wendler">
-    </div>
-    <div class="book-body">
-      <div class="book-title">5/3/1 Forever</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the muscle & strength pyramid: nutrition" data-cat="nutrition advanced">
-    <div class="book-cover">
-      <img src="images/cover_035_dde2688198c9.jpg" loading="lazy" alt="غلاف كتاب The Muscle &amp; Strength Pyramid: Nutrition">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Muscle & Strength Pyramid: Nutrition (3rd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the muscle & strength pyramid: training (3rd edition)" data-cat="strength advanced bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_036_1cea7d0edbad.jpg" loading="lazy" alt="غلاف كتاب The Muscle &amp; Strength Pyramid: Training (3rd Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The Muscle & Strength Pyramid: Training (3rd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="be your own bodybuilding coach" data-cat="strength bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_037_1b8eed457402.jpg" loading="lazy" alt="Be Your Own Bodybuilding Coach">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Be Your Own Bodybuilding Coach</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="anabolic steroids" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_010_0e0e8777ab0b.jpg" loading="lazy" alt="Anabolic Steroids">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Anabolic Steroids</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="scientific principles of hypertrophy training" data-cat="strength advanced bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_008_06e0e5d592fb.jpg" loading="lazy" alt="Scientific Principles of Hypertrophy Training">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Scientific Principles of Hypertrophy Training</div>
-      <div class="book-footer">
-        <div class="book-price">3500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="the aas cheat-sheet handbook" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_057_24717df7ab44.jpg" loading="lazy" alt="The AAS Cheat-Sheet Handbook">
-    </div>
-    <div class="book-body">
-      <div class="book-title">The AAS Cheat-Sheet Handbook</div>
-      <div class="book-footer">
-        <div class="book-price">4000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="principles and practice of resistance training" data-cat="strength advanced training-science powerlifting">
-    <div class="book-cover">
-      <img src="images/cover_049_07327ca3b78b.jpg" loading="lazy" alt="Principles and Practice of Resistance Training">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Principles and Practice of Resistance Training</div>
-      <div class="book-footer">
-        <div class="book-price">4000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="scientific principles of strength training" data-cat="strength advanced bodybuilding training-science powerlifting">
-    <div class="book-cover">
-      <img src="images/cover_066_scientific_principles_strength.jpg" loading="lazy" alt="Scientific Principles of Strength Training">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Scientific Principles of Strength Training</div>
-      <div class="book-footer">
-        <div class="book-price">4000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="science and practice of strength training" data-cat="strength advanced training-science powerlifting">
-    <div class="book-cover">
-      <img src="images/cover_016_6ab3ce786cf0.jpg" loading="lazy" alt="غلاف كتاب Science and Practice of Strength Training">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Science and Practice of Strength Training (3rd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">4500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="science and development of muscle hypertrophy" data-cat="strength advanced bodybuilding">
-    <div class="book-cover">
-      <img src="images/cover_023_e2f6dd509888.jpg" loading="lazy" alt="غلاف كتاب Science and Development of Muscle Hypertrophy">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Science and Development of Muscle Hypertrophy (2nd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">4500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="physiology of sport and exercise" data-cat="physiology advanced training-science">
-    <div class="book-cover">
-      <img src="images/cover_045_2c6fc8d6c6ae.jpg" loading="lazy" alt="Physiology of Sport and Exercise">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Physiology of Sport and Exercise (6th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">5000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="advanced sports nutrition" data-cat="nutrition advanced">
-    <div class="book-cover">
-      <img src="images/cover_019_3e548bd7fd7f.jpg" loading="lazy" alt="غلاف كتاب Advanced Sports Nutrition">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Advanced Sports Nutrition (3rd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">5000<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="sports nutrition issa" data-cat="nutrition certs">
-    <div class="book-cover">
-      <img src="images/cover_024_f12cbb82586f.jpg" loading="lazy" alt="Sports Nutrition (ISSA 5th Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Sports Nutrition (ISSA 5th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">5500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="jeff nippard collection" data-cat="programs strength advanced bodybuilding">
-    <div class="book-cover cover-full">
-      <img src="images/cover_061_309e37612504.jpg" loading="lazy" alt="Jeff Nippard Collection">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Jeff Nippard Collection</div>
-      <div class="book-footer">
-        <div class="book-price">6500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="sport nutrition" data-cat="nutrition advanced">
-    <div class="book-cover">
-      <img src="images/cover_034_932c6d0ae82c.jpg" loading="lazy" alt="غلاف كتاب Sport Nutrition">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Sport Nutrition (3rd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">6500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="kinesiology of the musculoskeletal system" data-cat="physiology training-science">
-    <div class="book-cover">
-      <img src="images/cover_069_kinesiology_musculoskeletal.jpg" loading="lazy" alt="Kinesiology of the Musculoskeletal System (3rd Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Kinesiology of the Musculoskeletal System: Foundations for Rehabilitation (3rd Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">6500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="issa certified personal trainer" data-cat="strength certs">
-    <div class="book-cover">
-      <img src="images/cover_052_2a36219534eb.jpg" loading="lazy" alt="ISSA Foundations and Applications for a Certified Personal Trainer — 10th Edition">
-    </div>
-    <div class="book-body">
-      <div class="book-title">ISSA Certified Personal Trainer (10th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">6500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="advanced nutrition and human metabolism" data-cat="nutrition advanced">
-    <div class="book-cover">
-      <img src="images/cover_048_00d76892e1f1.jpg" loading="lazy" alt="Advanced Nutrition and Human Metabolism">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Advanced Nutrition and Human Metabolism (8th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">7000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="nsca's guide to sport and exercise nutrition" data-cat="nutrition advanced certs">
-    <div class="book-cover">
-      <img src="images/cover_022_c6a0343910d7.jpg" loading="lazy" alt="غلاف كتاب NSCA's Guide to Sport and Exercise Nutrition">
-    </div>
-    <div class="book-body">
-      <div class="book-title">NSCA's Guide to Sport and Exercise Nutrition</div>
-      <div class="book-footer">
-        <div class="book-price">7000<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="exercise physiology nutrition energy and human performance" data-cat="physiology training-science">
-    <div class="book-cover">
-      <img src="images/cover_064_exercise_physiology.jpg" loading="lazy" alt="Exercise Physiology: Nutrition, Energy, and Human Performance (8th Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Exercise Physiology: Nutrition, Energy, and Human Performance (8th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">7500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="william llewellyn's anabolics" data-cat="advanced peds">
-    <div class="book-cover">
-      <img src="images/cover_058_9435ebd3401e.jpg" loading="lazy" alt="غلاف كتاب William Llewellyn's Anabolics">
-    </div>
-    <div class="book-body">
-      <div class="book-title">William Llewellyn's Anabolics</div>
-      <div class="book-footer">
-        <div class="book-price">7500<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="acsm's resources for the personal trainer" data-cat="strength certs">
-    <div class="book-cover">
-      <img src="images/cover_051_c0b8942f7b07.jpg" loading="lazy" alt="ACSM's Resources for the Personal Trainer (5th Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">ACSM's Resources for the Personal Trainer (6th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">7500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="nasm essentials of personal fitness training 7th" data-cat="strength certs">
-    <div class="book-cover">
-      <img src="images/cover_050_e0cfdb4be515.jpg" loading="lazy" alt="NASM Essentials of Personal Fitness Training (7th Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">NASM Essentials of Personal Fitness Training (7th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">7500<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="guyton and hall textbook of medical physiology" data-cat="physiology training-science">
-    <div class="book-cover">
-      <img src="images/cover_070_guyton_hall_physiology.jpg" loading="lazy" alt="Guyton and Hall Textbook of Medical Physiology (14th Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Guyton and Hall Textbook of Medical Physiology (14th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">8000<small class="currency">دج</small></div>
-        <a href="#" class="buy-btn" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
-<article class="book-card" data-title="essentials of strength training and conditioning (5th edition)" data-cat="strength advanced certs">
-    <div class="book-cover">
-      <img src="images/cover_059_0543da53974b.jpg" loading="lazy" alt="غلاف كتاب Essentials of Strength Training and Conditioning (5th Edition)">
-    </div>
-    <div class="book-body">
-      <div class="book-title">Essentials of Strength Training and Conditioning (5th Edition)</div>
-      <div class="book-footer">
-        <div class="book-price">9000<small class="currency">دج</small></div>
-        <a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
-        <button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
-      </div>
-    </div>
-  </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="book-card" data-cat="programs mindset" data-title="the champion's mind">
+<div class="book-cover">
+<img alt="The Champion's Mind" loading="lazy" src="images/cover_018_52865d124e6f.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Champion's Mind</div>
+<div class="book-footer">
+<div class="book-price">700<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition" data-title="the food safety book">
+<div class="book-cover">
+<img alt="The Food Safety Book — Joe Kivett" loading="lazy" src="images/cover_013_e16b09b21b2d.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Food Safety Book</div>
+<div class="book-footer">
+<div class="book-price">800<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength powerlifting training-science" data-title="the juggernaut method 2.0">
+<div class="book-cover">
+<img alt="The Juggernaut Method 2.0" loading="lazy" src="images/cover_072_juggernaut_method_2.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Juggernaut Method 2.0</div>
+<div class="book-footer">
+<div class="book-price">800<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength beginner bodybuilding" data-title="the art of lifting">
+<div class="book-cover">
+<img alt="غلاف كتاب The Art of Lifting" loading="lazy" src="images/cover_028_4328f272f81e.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Art of Lifting</div>
+<div class="book-footer">
+<div class="book-price">1000<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="mindset" data-title="the little black book of workout motivation">
+<div class="book-cover">
+<img alt="The Little Black Book of Workout Motivation" loading="lazy" src="images/cover_068_little_black_book_motivation.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Little Black Book of Workout Motivation</div>
+<div class="book-footer">
+<div class="book-price">1000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition" data-title="how not to diet">
+<div class="book-cover">
+<img alt="غلاف كتاب How Not to Diet" loading="lazy" src="images/cover_004_cfddc295ad7b.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">How Not to Diet</div>
+<div class="book-footer">
+<div class="book-price">1100<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition" data-title="deep nutrition">
+<div class="book-cover">
+<img alt="Deep Nutrition — Catherine Shanahan, M.D." loading="lazy" src="images/cover_032_e81a307bd385.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Deep Nutrition</div>
+<div class="book-footer">
+<div class="book-price">1200<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="programs mindset" data-title="ignite the fire">
+<div class="book-cover">
+<img alt="Ignite the Fire — Jonathan Goodman" loading="lazy" src="images/cover_021_7418a23ee13a.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Ignite the Fire</div>
+<div class="book-footer">
+<div class="book-price">1200<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="programs beginner mindset" data-title="level up">
+<div class="book-cover">
+<img alt="Level Up" loading="lazy" src="images/cover_007_a4a44d54c1f5.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Level Up</div>
+<div class="book-footer">
+<div class="book-price">1400<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="physiology programs training-science" data-title="built from broken">
+<div class="book-cover">
+<img alt="غلاف كتاب Built from Broken" loading="lazy" src="images/cover_014_31b110b2ee89.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Built from Broken</div>
+<div class="book-footer">
+<div class="book-price">1500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength beginner training-science powerlifting" data-title="starting strength">
+<div class="book-cover">
+<img alt="Starting Strength" loading="lazy" src="images/cover_012_7236a50dd0bb.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Starting Strength: Basic Barbell Training (3rd Edition)</div>
+<div class="book-footer">
+<div class="book-price">1700<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition recipes women" data-title="broccoli mum">
+<div class="book-cover">
+<img alt="Broccoli Mum — The Maximum Weight Loss Recipe Book" loading="lazy" src="images/cover_005_487e71564d18.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Broccoli Mum</div>
+<div class="book-footer">
+<div class="book-price">1800<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="programs strength advanced mindset" data-title="the language of coaching">
+<div class="book-cover">
+<img alt="The Language of Coaching" loading="lazy" src="images/cover_017_12b6ed044ac3.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Language of Coaching</div>
+<div class="book-footer">
+<div class="book-price">1800<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced bodybuilding" data-title="train smarter, not longer">
+<div class="book-cover">
+<img alt="غلاف كتاب Train Smarter, Not Longer" loading="lazy" src="images/cover_031_60a183238cf8.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Train Smarter, Not Longer</div>
+<div class="book-footer">
+<div class="book-price">2000<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition advanced" data-title="advanced sports nutrition">
+<div class="book-cover">
+<img alt="غلاف كتاب Advanced Sports Nutrition" loading="lazy" src="images/cover_019_3e548bd7fd7f.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Advanced Sports Nutrition (3rd Edition)</div>
+<div class="book-footer">
+<div class="book-price">2000<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength bodybuilding" data-title="bodybuilding the complete contest preparation handbook">
+<div class="book-cover">
+<img alt="Bodybuilding: The Complete Contest Preparation Handbook" loading="lazy" src="images/cover_029_61c82dd620b1.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Bodybuilding: The Complete Contest Preparation Handbook</div>
+<div class="book-footer">
+<div class="book-price">2000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds" data-title="p.e.d. cheat sheets">
+<div class="book-cover">
+<img alt="P.E.D. Cheat Sheets" loading="lazy" src="images/cover_055_2345968b7446.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">P.E.D. Cheat Sheets</div>
+<div class="book-footer">
+<div class="book-price">2000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced bodybuilding training-science powerlifting" data-title="scientific principles of strength training">
+<div class="book-cover">
+<img alt="Scientific Principles of Strength Training" loading="lazy" src="images/cover_066_scientific_principles_strength.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Scientific Principles of Strength Training</div>
+<div class="book-footer">
+<div class="book-price">2000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds" data-title="the aas cheat-sheet handbook">
+<div class="book-cover">
+<img alt="The AAS Cheat-Sheet Handbook" loading="lazy" src="images/cover_057_24717df7ab44.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The AAS Cheat-Sheet Handbook</div>
+<div class="book-footer">
+<div class="book-price">2000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition advanced" data-title="the muscle &amp; strength pyramid: nutrition">
+<div class="book-cover">
+<img alt="غلاف كتاب The Muscle &amp; Strength Pyramid: Nutrition" loading="lazy" src="images/cover_035_dde2688198c9.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Muscle &amp; Strength Pyramid: Nutrition (3rd Edition)</div>
+<div class="book-footer">
+<div class="book-price">2200<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds" data-title="trt to sports hrt">
+<div class="book-cover">
+<img alt="TRT to Sports HRT" loading="lazy" src="images/cover_054_2c0417a43c62.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">TRT to Sports HRT</div>
+<div class="book-footer">
+<div class="book-price">2200<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds powerlifting" data-title="eat clen tren hard">
+<div class="book-cover">
+<img alt="Eat Clen, Tren Hard — The Guide for Steroid Use in Powerlifting" loading="lazy" src="images/cover_067_eat_clen_tren_hard.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Eat Clen, Tren Hard: The Guide for Steroid Use in Powerlifting</div>
+<div class="book-footer">
+<div class="book-price">2200<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition" data-title="how not to die">
+<div class="book-cover">
+<img alt="غلاف كتاب How Not to Die" loading="lazy" src="images/cover_006_3704582022a9.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">How Not to Die</div>
+<div class="book-footer">
+<div class="book-price">2300<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="programs physiology training-science" data-title="rebuilding milo">
+<div class="book-cover">
+<img alt="غلاف كتاب Rebuilding Milo" loading="lazy" src="images/cover_030_28d18b235ba3.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Rebuilding Milo</div>
+<div class="book-footer">
+<div class="book-price">2300<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="physiology strength training-science" data-title="biomechanics of sport and exercise">
+<div class="book-cover">
+<img alt="Biomechanics of Sport and Exercise (3rd Edition)" loading="lazy" src="images/cover_039_1371064e6a3c.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Biomechanics of Sport and Exercise (3rd Edition)</div>
+<div class="book-footer">
+<div class="book-price">2300<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition women" data-title="fat loss guide">
+<div class="book-cover">
+<img alt="Fat Loss Guide — Liftwsarah" loading="lazy" src="images/cover_015_63b30743f936.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Fat Loss Guide</div>
+<div class="book-footer">
+<div class="book-price">2400<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds" data-title="sarms matrix">
+<div class="book-cover">
+<img alt="SARMs Matrix" loading="lazy" src="images/cover_053_1acfdeaa6b4f.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">SARMs Matrix: The Future of Bodybuilding Chemistry</div>
+<div class="book-footer">
+<div class="book-price">2400<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="physiology strength bodybuilding" data-title="the biomechanics manual">
+<div class="book-cover">
+<img alt="غلاف كتاب THE BIOMECHANICS MANUAL" loading="lazy" src="images/cover_003_911dc28a2629.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Biomechanics Manual</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced bodybuilding" data-title="win">
+<div class="book-cover">
+<img alt="WIN — Dr. James DiNicolantonio" loading="lazy" src="images/cover_043_57165e87fb51.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">WIN</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced bodybuilding training-science powerlifting" data-title="5/3/1 forever">
+<div class="book-cover">
+<img alt="5/3/1 Forever — Jim Wendler" loading="lazy" src="images/cover_065_531_forever.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">5/3/1 Forever</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds" data-title="building effective cycles">
+<div class="book-cover cover-full">
+<img alt="Building Effective Cycles" loading="lazy" src="images/cover_056_8bb4fc4f57ef.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Building Effective Cycles: Cycle Design Construction</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="physiology advanced training-science" data-title="physiology of sport and exercise">
+<div class="book-cover">
+<img alt="Physiology of Sport and Exercise" loading="lazy" src="images/cover_045_2c6fc8d6c6ae.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Physiology of Sport and Exercise (6th Edition)</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced training-science powerlifting" data-title="principles and practice of resistance training">
+<div class="book-cover">
+<img alt="Principles and Practice of Resistance Training" loading="lazy" src="images/cover_049_07327ca3b78b.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Principles and Practice of Resistance Training</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced bodybuilding" data-title="science and development of muscle hypertrophy">
+<div class="book-cover">
+<img alt="غلاف كتاب Science and Development of Muscle Hypertrophy" loading="lazy" src="images/cover_023_e2f6dd509888.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Science and Development of Muscle Hypertrophy (2nd Edition)</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced training-science powerlifting" data-title="science and practice of strength training">
+<div class="book-cover">
+<img alt="غلاف كتاب Science and Practice of Strength Training" loading="lazy" src="images/cover_016_6ab3ce786cf0.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Science and Practice of Strength Training (3rd Edition)</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition advanced" data-title="sport nutrition">
+<div class="book-cover">
+<img alt="غلاف كتاب Sport Nutrition" loading="lazy" src="images/cover_034_932c6d0ae82c.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Sport Nutrition (3rd Edition)</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced bodybuilding" data-title="the muscle &amp; strength pyramid: training (3rd edition)">
+<div class="book-cover">
+<img alt="غلاف كتاب The Muscle &amp; Strength Pyramid: Training (3rd Edition)" loading="lazy" src="images/cover_036_1cea7d0edbad.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Muscle &amp; Strength Pyramid: Training (3rd Edition)</div>
+<div class="book-footer">
+<div class="book-price">2500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition advanced" data-title="advanced nutrition and human metabolism">
+<div class="book-cover">
+<img alt="Advanced Nutrition and Human Metabolism" loading="lazy" src="images/cover_048_00d76892e1f1.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Advanced Nutrition and Human Metabolism (8th Edition)</div>
+<div class="book-footer">
+<div class="book-price">2600<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition beginner" data-title="nutrition for dummies (7th edition)">
+<div class="book-cover">
+<img alt="غلاف كتاب Nutrition For Dummies (7th Edition)" loading="lazy" src="images/cover_002_39c92d56f265.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Nutrition For Dummies (7th Edition)</div>
+<div class="book-footer">
+<div class="book-price">2700<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition recipes women" data-title="eat like a gym girl + egg white oats">
+<div class="book-cover cover-full">
+<img alt="Eat Like a Gym Girl + Egg White Oats — Liftwsarah" loading="lazy" src="images/cover_009_a213124eecf1.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Eat Like a Gym Girl + Egg White Oats</div>
+<div class="book-footer">
+<div class="book-price">2800<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength bodybuilding" data-title="be your own bodybuilding coach">
+<div class="book-cover">
+<img alt="Be Your Own Bodybuilding Coach" loading="lazy" src="images/cover_037_1b8eed457402.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Be Your Own Bodybuilding Coach</div>
+<div class="book-footer">
+<div class="book-price">2800<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition programs" data-title="the ultimate guide to body recomposition">
+<div class="book-cover">
+<img alt="The Ultimate Guide to Body Recomposition" loading="lazy" src="images/cover_027_49c0da8f7ab5.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Ultimate Guide to Body Recomposition</div>
+<div class="book-footer">
+<div class="book-price">3000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition" data-title="the renaissance diet 2.0">
+<div class="book-cover">
+<img alt="The Renaissance Diet 2.0" loading="lazy" src="images/cover_026_5250adf55bd8.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Renaissance Diet 2.0</div>
+<div class="book-footer">
+<div class="book-price">3000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition recipes bodybuilding" data-title="the ultimate athlete cookbook bundle (500+ recipes)">
+<div class="book-cover">
+<img alt="The Ultimate Athlete Cookbook Bundle (500+ Recipes)" loading="lazy" src="images/cover_063_ultimate_athlete_bundle.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">The Ultimate Athlete Cookbook Bundle (500+ Recipes)</div>
+<div class="book-footer">
+<div class="book-price">3000<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition certs" data-title="sports nutrition issa">
+<div class="book-cover">
+<img alt="Sports Nutrition (ISSA 5th Edition)" loading="lazy" src="images/cover_024_f12cbb82586f.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Sports Nutrition (ISSA 5th Edition)</div>
+<div class="book-footer">
+<div class="book-price">3000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds" data-title="peptide mastery">
+<div class="book-cover">
+<img alt="Peptide Mastery" loading="lazy" src="images/cover_046_06815c7c6feb.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Peptide Mastery: Your Guide to Perfecting Peptides + RETATRUTIDE </div>
+<div class="book-footer">
+<div class="book-price">3000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced training-science powerlifting" data-title="practical programming for strength training (3rd edition)">
+<div class="book-cover">
+<img alt="غلاف كتاب Practical Programming for Strength Training (3rd Edition)" loading="lazy" src="images/cover_011_3f0129d7c7f2.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Practical Programming for Strength Training (3rd Edition)</div>
+<div class="book-footer">
+<div class="book-price">3000<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength powerlifting training-science" data-title="program design manual">
+<div class="book-cover">
+<img alt="Program Design Manual" loading="lazy" src="images/cover_073_program_design_manual.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Program Design Manual</div>
+<div class="book-footer">
+<div class="book-price">3100<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition advanced certs" data-title="nsca's guide to sport and exercise nutrition">
+<div class="book-cover">
+<img alt="غلاف كتاب NSCA's Guide to Sport and Exercise Nutrition" loading="lazy" src="images/cover_022_c6a0343910d7.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">NSCA's Guide to Sport and Exercise Nutrition</div>
+<div class="book-footer">
+<div class="book-price">3400<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds" data-title="anabolic steroids">
+<div class="book-cover">
+<img alt="Anabolic Steroids" loading="lazy" src="images/cover_010_0e0e8777ab0b.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Anabolic Steroids</div>
+<div class="book-footer">
+<div class="book-price">3500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="physiology training-science" data-title="exercise physiology nutrition energy and human performance">
+<div class="book-cover">
+<img alt="Exercise Physiology: Nutrition, Energy, and Human Performance (8th Edition)" loading="lazy" src="images/cover_064_exercise_physiology.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Exercise Physiology: Nutrition, Energy, and Human Performance (8th Edition)</div>
+<div class="book-footer">
+<div class="book-price">3500<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="programs strength advanced bodybuilding" data-title="jeff nippard collection">
+<div class="book-cover cover-full">
+<img alt="Jeff Nippard Collection" loading="lazy" src="images/cover_061_309e37612504.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Jeff Nippard Collection</div>
+<div class="book-footer">
+<div class="book-price">3500<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced bodybuilding" data-title="scientific principles of hypertrophy training">
+<div class="book-cover">
+<img alt="Scientific Principles of Hypertrophy Training" loading="lazy" src="images/cover_008_06e0e5d592fb.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Scientific Principles of Hypertrophy Training</div>
+<div class="book-footer">
+<div class="book-price">3500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds" data-title="the basic map work for how to properly cycle">
+<div class="book-cover">
+<img alt="The Basic Map Work for How to Properly Cycle" loading="lazy" src="images/cover_025_54ee30bba83d.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Viva La Enhanced Man: The Basic Map Work for How to Properly Cycle</div>
+<div class="book-footer">
+<div class="book-price">3500<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="advanced peds" data-title="william llewellyn's anabolics">
+<div class="book-cover">
+<img alt="غلاف كتاب William Llewellyn's Anabolics" loading="lazy" src="images/cover_058_9435ebd3401e.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">William Llewellyn's Anabolics</div>
+<div class="book-footer">
+<div class="book-price">3800<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength powerlifting training-science" data-title="juggernaut squat deadlift manual">
+<div class="book-cover">
+<img alt="Juggernaut Squat + Deadlift Manual" loading="lazy" src="images/cover_071_juggernaut_squat_deadlift.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Juggernaut Squat + Deadlift Manual</div>
+<div class="book-footer">
+<div class="book-price">4000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition advanced" data-title="essentials of human nutrition">
+<div class="book-cover">
+<img alt="Essentials of Human Nutrition" loading="lazy" src="images/cover_040_dacde3b7c3c8.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Essentials of Human Nutrition (4th Edition)</div>
+<div class="book-footer">
+<div class="book-price">4200<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="programs advanced strength training-science powerlifting" data-title="periodization theory and methodology of training">
+<div class="book-cover">
+<img alt="Periodization: Theory and Methodology of Training (6th Edition)" loading="lazy" src="images/cover_044_e97c592974ed.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Periodization: Theory and Methodology of Training (6th Edition)</div>
+<div class="book-footer">
+<div class="book-price">4200<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="physiology training-science" data-title="kinesiology of the musculoskeletal system">
+<div class="book-cover">
+<img alt="Kinesiology of the Musculoskeletal System (3rd Edition)" loading="lazy" src="images/cover_069_kinesiology_musculoskeletal.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Kinesiology of the Musculoskeletal System: Foundations for Rehabilitation (3rd Edition)</div>
+<div class="book-footer">
+<div class="book-price">4500<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="nutrition advanced certs" data-title="essentials of sports nutrition and supplements study guide">
+<div class="book-cover">
+<img alt="Essentials of Sports Nutrition and Supplements Study Guide" loading="lazy" src="images/cover_020_4e5900efd8d2.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Essentials of Sports Nutrition and Supplements Study Guide</div>
+<div class="book-footer">
+<div class="book-price">4800<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="physiology training-science" data-title="guyton and hall textbook of medical physiology">
+<div class="book-cover">
+<img alt="Guyton and Hall Textbook of Medical Physiology (14th Edition)" loading="lazy" src="images/cover_070_guyton_hall_physiology.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Guyton and Hall Textbook of Medical Physiology (14th Edition)</div>
+<div class="book-footer">
+<div class="book-price">4800<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="physiology advanced training-science" data-title="advanced neuromuscular exercise physiology">
+<div class="book-cover">
+<img alt="Advanced Neuromuscular Exercise Physiology" loading="lazy" src="images/cover_038_732a8914b9ef.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Advanced Neuromuscular Exercise Physiology</div>
+<div class="book-footer">
+<div class="book-price">5000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength certs" data-title="nasm essentials of personal fitness training 7th">
+<div class="book-cover">
+<img alt="NASM Essentials of Personal Fitness Training (7th Edition)" loading="lazy" src="images/cover_050_e0cfdb4be515.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">NASM Essentials of Personal Fitness Training (7th Edition)</div>
+<div class="book-footer">
+<div class="book-price">6000<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength certs" data-title="issa certified personal trainer">
+<div class="book-cover">
+<img alt="ISSA Foundations and Applications for a Certified Personal Trainer — 10th Edition" loading="lazy" src="images/cover_052_2a36219534eb.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">ISSA Certified Personal Trainer (10th Edition)</div>
+<div class="book-footer">
+<div class="book-price">6500<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength certs" data-title="acsm's resources for the personal trainer">
+<div class="book-cover">
+<img alt="ACSM's Resources for the Personal Trainer (5th Edition)" loading="lazy" src="images/cover_051_c0b8942f7b07.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">ACSM's Resources for the Personal Trainer (6th Edition)</div>
+<div class="book-footer">
+<div class="book-price">8500<small class="currency">دج</small></div>
+<a class="buy-btn" href="#" onclick="buyBook(this); return false;">تواصل خاص للشراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
+<article class="book-card" data-cat="strength advanced certs" data-title="essentials of strength training and conditioning (5th edition)">
+<div class="book-cover">
+<img alt="غلاف كتاب Essentials of Strength Training and Conditioning (5th Edition)" loading="lazy" src="images/cover_059_0543da53974b.jpg"/>
+</div>
+<div class="book-body">
+<div class="book-title">Essentials of Strength Training and Conditioning (5th Edition)</div>
+<div class="book-footer">
+<div class="book-price">10000<small class="currency">دج</small></div>
+<a class="buy-btn" href="javascript:void(0)" onclick="buyBook(this)" role="button">شراء</a>
+<button class="details-btn" onclick="showDetails(this)">تفاصيل الكتاب</button>
+</div>
+</div>
+</article>
 </section>
-
-<p class="no-results" id="noResults" data-i18n="noResults">لا توجد نتائج مطابقة لبحثك.</p>
-
-
+<p class="no-results" data-i18n="noResults" id="noResults">لا توجد نتائج مطابقة لبحثك.</p>
 <footer data-i18n-html="footer">Coach Anis Library — مكتبة خاصة بمتابعين <strong>Coach Anis</strong>
-  <a class="ig-btn ig-footer" href="https://www.instagram.com/coach__anis/" target="_blank" rel="noopener noreferrer">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    <span>@coach__anis</span>
-  </a>
+<a class="ig-btn ig-footer" href="https://www.instagram.com/coach__anis/" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+<span>@coach__anis</span>
+</a>
 </footer>
-
 <script>
   const I18N = {
     ar: {
@@ -3689,143 +3741,131 @@ const themeBtn = document.getElementById('themeToggle');
   try { savedLang = localStorage.getItem('library-lang') || 'ar'; } catch(e) {}
   applyLanguage(savedLang);
 </script>
-
-
 <!-- Cart bottom bar -->
-<div class="cart-bar" id="cartBar" aria-live="polite">
-  <div class="cart-bar-inner">
-    <div class="cart-summary" id="cartSummary" role="button" tabindex="0" aria-expanded="false">
-      <div class="cart-icon-wrap">
+<div aria-live="polite" class="cart-bar" id="cartBar">
+<div class="cart-bar-inner">
+<div aria-expanded="false" class="cart-summary" id="cartSummary" role="button" tabindex="0">
+<div class="cart-icon-wrap">
         🛒
         <span class="cart-badge" id="cartBadge">0</span>
-      </div>
-      <div class="cart-summary-text">
-        <div class="cart-summary-title" id="cartSummaryTitle">سلة المشتريات</div>
-        <div class="cart-summary-sub" id="cartSummarySub">0 كتاب</div>
-        <div class="cart-summary-total" id="cartSummaryTotal"></div>
-      </div>
-      <span class="cart-toggle-arrow" id="cartArrow">▲</span>
-      <button type="button" class="cart-checkout-btn" id="cartCheckoutBtn" onclick="event.stopPropagation(); checkoutCart()">تأكيد الطلب</button>
-    </div>
-    <div class="cart-panel" id="cartPanel">
-      <div class="cart-motivate" id="cartMotivate">اختيار موفق 💪🏼</div>
-      <div class="cart-offer" id="cartOffer">
-        <div class="cart-offer-title" id="cartOfferTitle">عرض خاص</div>
-        <div class="cart-offer-text" id="cartOfferText">اشترِ أكثر من كتابين واحصل على خصم 20٪ على المجموع</div>
-      </div>
-      <div class="cart-items-wrap" id="cartItemsWrap">
-        <div class="cart-scroll-hint" id="cartScrollHint" data-i18n="cartScrollHint">مرّر لعرض باقي الكتب</div>
-        <div class="cart-items" id="cartItems"></div>
-      </div>
-      <div class="cart-totals" id="cartTotals">
-        <div class="cart-total-line" id="cartSubtotalLine" style="display:none">
-          <span id="cartSubtotalLabel">المجموع قبل الخصم</span>
-          <span id="cartSubtotalValue">0</span>
-        </div>
-        <div class="cart-total-line discount-line" id="cartDiscountLine" style="display:none">
-          <span id="cartDiscountLabel">الخصم (20٪)</span>
-          <span id="cartDiscountValue">−0</span>
-        </div>
-        <div class="cart-total-line final-line">
-          <span id="cartTotalLabel">المبلغ المستحق</span>
-          <span id="cartTotalValue">0 دج</span>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+<div class="cart-summary-text">
+<div class="cart-summary-title" id="cartSummaryTitle">سلة المشتريات</div>
+<div class="cart-summary-sub" id="cartSummarySub">0 كتاب</div>
+<div class="cart-summary-total" id="cartSummaryTotal"></div>
+</div>
+<span class="cart-toggle-arrow" id="cartArrow">▲</span>
+<button class="cart-checkout-btn" id="cartCheckoutBtn" onclick="event.stopPropagation(); checkoutCart()" type="button">تأكيد الطلب</button>
+</div>
+<div class="cart-panel" id="cartPanel">
+<div class="cart-motivate" id="cartMotivate">اختيار موفق 💪🏼</div>
+<div class="cart-offer" id="cartOffer">
+<div class="cart-offer-title" id="cartOfferTitle">عرض خاص</div>
+<div class="cart-offer-text" id="cartOfferText">اشترِ أكثر من كتابين واحصل على خصم 20٪ على المجموع</div>
+</div>
+<div class="cart-items-wrap" id="cartItemsWrap">
+<div class="cart-scroll-hint" data-i18n="cartScrollHint" id="cartScrollHint">مرّر لعرض باقي الكتب</div>
+<div class="cart-items" id="cartItems"></div>
+</div>
+<div class="cart-totals" id="cartTotals">
+<div class="cart-total-line" id="cartSubtotalLine" style="display:none">
+<span id="cartSubtotalLabel">المجموع قبل الخصم</span>
+<span id="cartSubtotalValue">0</span>
+</div>
+<div class="cart-total-line discount-line" id="cartDiscountLine" style="display:none">
+<span id="cartDiscountLabel">الخصم (20٪)</span>
+<span id="cartDiscountValue">−0</span>
+</div>
+<div class="cart-total-line final-line">
+<span id="cartTotalLabel">المبلغ المستحق</span>
+<span id="cartTotalValue">0 دج</span>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="cart-toast" id="cartToast"></div>
-
 <div class="order-overlay" id="orderModal">
-  <div class="order-box">
-    <button class="order-close" type="button" onclick="closeOrderForm()" aria-label="Close">&times;</button>
-    <div class="order-title" id="orderTitle" data-i18n="orderTitle">طلب كتاب</div>
-    <p class="order-sub" id="orderSub" data-i18n="orderSub">أدخل بياناتك وسنتواصل معك لتأكيد الطلب</p>
-
-    <form class="order-form" id="orderForm"
-          action="#"
-          method="POST"
-          accept-charset="UTF-8">
+<div class="order-box">
+<button aria-label="Close" class="order-close" onclick="closeOrderForm()" type="button">×</button>
+<div class="order-title" data-i18n="orderTitle" id="orderTitle">طلب كتاب</div>
+<p class="order-sub" data-i18n="orderSub" id="orderSub">أدخل بياناتك وسنتواصل معك لتأكيد الطلب</p>
+<form accept-charset="UTF-8" action="#" class="order-form" id="orderForm" method="POST">
 <p class="order-hint" id="orderLatinNotice" style="margin-bottom:12px;text-align:center;color:var(--gold-bright);font-weight:600">
         يرجى تعبئة الاسم والرقم بالحروف والأرقام اللاتينية (فرنسية/إنجليزية) وليس بالعربية
       </p>
-
-      <div class="order-field">
-        <label for="orderName" data-i18n="orderNameLabel">الاسم الكامل <span>*</span></label>
-        <input type="text" id="orderName" name="name" required autocomplete="name" placeholder="Ex: Ahmed Benali" dir="ltr" style="text-align:left">
-        <p class="order-hint" id="orderNameHint">يرجى تعبئة الاسم بالحروف اللاتينية (فرنسية أو إنجليزية) وليس بالعربية</p>
-      </div>
-      <div class="order-field">
-        <label for="orderPhone" data-i18n="orderPhoneLabel">رقم الهاتف / واتساب <span>*</span></label>
-        <input type="tel" id="orderPhone" name="phone" required autocomplete="tel" placeholder="05........" dir="ltr" style="text-align:left" inputmode="numeric">
-        <p class="order-hint" id="orderPhoneHint">يرجى كتابة الرقم بأرقام إنجليزية فقط (0-9) بدون أرقام عربية</p>
-      </div>
-      <div class="order-field">
-        <label for="orderBook" data-i18n="orderBookLabel">الكتب المطلوبة</label>
-        <textarea id="orderBook" name="book" readonly rows="3" style="min-height:72px;resize:none"></textarea>
-      </div>
-      <div class="order-field">
-        <label for="orderNotes" data-i18n="orderNotesLabel">ملاحظات (اختياري)</label>
-        <textarea id="orderNotes" name="notes" data-i18n-placeholder="orderNotesPlaceholder" placeholder="مثال: أريد النسخة المترجمة للعربية..."></textarea>
-      </div>
-      <div class="order-actions">
-        <button type="submit" class="order-submit" id="orderSubmitBtn" data-i18n="orderSubmit">إرسال الطلب</button>
-      </div>
-    </form>
-
-    <div class="order-success" id="orderSuccess">
-      <div class="order-success-banner">
-        <div class="order-success-icon">✓</div>
-        <h3 data-i18n="orderSuccessTitle">شكراً لطلبك</h3>
-        <p data-i18n="orderSuccessDesc">تم استلام طلبك بنجاح. سنراجع التفاصيل ونتواصل معك قريباً لتأكيد الطلب وإتمام العملية.</p>
-      </div>
-      <div class="order-actions" style="margin-top:16px">
-        <button type="button" class="order-submit" onclick="closeOrderForm()" data-i18n="orderClose">حسناً</button>
-      </div>
-    </div>
-  </div>
+<div class="order-field">
+<label data-i18n="orderNameLabel" for="orderName">الاسم الكامل <span>*</span></label>
+<input autocomplete="name" dir="ltr" id="orderName" name="name" placeholder="Ex: Ahmed Benali" required="" style="text-align:left" type="text"/>
+<p class="order-hint" id="orderNameHint">يرجى تعبئة الاسم بالحروف اللاتينية (فرنسية أو إنجليزية) وليس بالعربية</p>
 </div>
-
+<div class="order-field">
+<label data-i18n="orderPhoneLabel" for="orderPhone">رقم الهاتف / واتساب <span>*</span></label>
+<input autocomplete="tel" dir="ltr" id="orderPhone" inputmode="numeric" name="phone" placeholder="05........" required="" style="text-align:left" type="tel"/>
+<p class="order-hint" id="orderPhoneHint">يرجى كتابة الرقم بأرقام إنجليزية فقط (0-9) بدون أرقام عربية</p>
+</div>
+<div class="order-field">
+<label data-i18n="orderBookLabel" for="orderBook">الكتب المطلوبة</label>
+<textarea id="orderBook" name="book" readonly="" rows="3" style="min-height:72px;resize:none"></textarea>
+</div>
+<div class="order-field">
+<label data-i18n="orderNotesLabel" for="orderNotes">ملاحظات (اختياري)</label>
+<textarea data-i18n-placeholder="orderNotesPlaceholder" id="orderNotes" name="notes" placeholder="مثال: أريد النسخة المترجمة للعربية..."></textarea>
+</div>
+<div class="order-actions">
+<button class="order-submit" data-i18n="orderSubmit" id="orderSubmitBtn" type="submit">إرسال الطلب</button>
+</div>
+</form>
+<div class="order-success" id="orderSuccess">
+<div class="order-success-banner">
+<div class="order-success-icon">✓</div>
+<h3 data-i18n="orderSuccessTitle">شكراً لطلبك</h3>
+<p data-i18n="orderSuccessDesc">تم استلام طلبك بنجاح. سنراجع التفاصيل ونتواصل معك قريباً لتأكيد الطلب وإتمام العملية.</p>
+</div>
+<div class="order-actions" style="margin-top:16px">
+<button class="order-submit" data-i18n="orderClose" onclick="closeOrderForm()" type="button">حسناً</button>
+</div>
+</div>
+</div>
+</div>
 <div class="detail-page" id="bookDetail">
-  <div class="detail-inner">
-    <button class="detail-back" onclick="closeDetails()" type="button">
-      <span id="detailBackArrow">→</span>
-      <span id="detailBackText" data-i18n="backBtn">رجوع للمكتبة</span>
-    </button>
-    <div class="detail-top">
-      <div class="detail-cover-wrap">
-        <img id="detailCover" src="" alt="">
-      </div>
-      <div class="detail-meta">
-        <h1 class="detail-title" id="detailTitle"></h1>
-        <div class="detail-price" id="detailPrice"></div>
-        <button class="detail-buy" id="detailBuyBtn" type="button" onclick="buyFromDetail()">شراء</button>
-      </div>
-    </div>
-    <div class="detail-toc-box" id="detailTocBox">
-      <div class="detail-toc-label" id="detailTocLabel" data-i18n="tocLabel">فهرس الكتاب</div>
-      <div class="detail-toc-gallery" id="detailTocGallery"></div>
-    </div>
-    <div class="detail-desc-box">
-      <div class="detail-desc-label" id="detailDescLabel" data-i18n="aboutBook">عن الكتاب</div>
-      <div class="detail-desc" id="detailDesc"></div>
-    </div>
-    <div class="detail-related-box" id="detailRelatedBox">
-      <div class="detail-related-label" id="detailRelatedLabel">كتب مشابهة من نفس الفئة</div>
-      <div class="detail-related-grid" id="detailRelatedGrid"></div>
-    </div>
-  </div>
+<div class="detail-inner">
+<button class="detail-back" onclick="closeDetails()" type="button">
+<span id="detailBackArrow">→</span>
+<span data-i18n="backBtn" id="detailBackText">رجوع للمكتبة</span>
+</button>
+<div class="detail-top">
+<div class="detail-cover-wrap">
+<img alt="" id="detailCover" src=""/>
 </div>
-
+<div class="detail-meta">
+<h1 class="detail-title" id="detailTitle"></h1>
+<div class="detail-price" id="detailPrice"></div>
+<button class="detail-buy" id="detailBuyBtn" onclick="buyFromDetail()" type="button">شراء</button>
+</div>
+</div>
+<div class="detail-toc-box" id="detailTocBox">
+<div class="detail-toc-label" data-i18n="tocLabel" id="detailTocLabel">فهرس الكتاب</div>
+<div class="detail-toc-gallery" id="detailTocGallery"></div>
+</div>
+<div class="detail-desc-box">
+<div class="detail-desc-label" data-i18n="aboutBook" id="detailDescLabel">عن الكتاب</div>
+<div class="detail-desc" id="detailDesc"></div>
+</div>
+<div class="detail-related-box" id="detailRelatedBox">
+<div class="detail-related-label" id="detailRelatedLabel">كتب مشابهة من نفس الفئة</div>
+<div class="detail-related-grid" id="detailRelatedGrid"></div>
+</div>
+</div>
+</div>
 <!-- Lightbox لتكبير صور الفهرس -->
-<div class="toc-lightbox" id="tocLightbox" role="dialog" aria-modal="true" aria-label="TOC preview">
-  <button type="button" class="toc-lightbox-close" id="tocLightboxClose" aria-label="Close">&times;</button>
-  <button type="button" class="toc-lightbox-nav toc-lightbox-prev" id="tocLightboxPrev" aria-label="Previous">&#8249;</button>
-  <img id="tocLightboxImg" src="" alt="">
-  <button type="button" class="toc-lightbox-nav toc-lightbox-next" id="tocLightboxNext" aria-label="Next">&#8250;</button>
-  <div class="toc-lightbox-counter" id="tocLightboxCounter"></div>
+<div aria-label="TOC preview" aria-modal="true" class="toc-lightbox" id="tocLightbox" role="dialog">
+<button aria-label="Close" class="toc-lightbox-close" id="tocLightboxClose" type="button">×</button>
+<button aria-label="Previous" class="toc-lightbox-nav toc-lightbox-prev" id="tocLightboxPrev" type="button">‹</button>
+<img alt="" id="tocLightboxImg" src=""/>
+<button aria-label="Next" class="toc-lightbox-nav toc-lightbox-next" id="tocLightboxNext" type="button">›</button>
+<div class="toc-lightbox-counter" id="tocLightboxCounter"></div>
 </div>
-
 <script src="toc-images.js"></script>
 <script>
 const bookDetails = {
