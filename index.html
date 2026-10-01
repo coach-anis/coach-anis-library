@@ -3191,11 +3191,9 @@
       relatedBooks: "كتب مشابهة من نفس الفئة",
       orderTitle: "إتمام طلب الكتب",
       orderSub: "أدخل بياناتك وسنتواصل معك لتأكيد الطلب",
-      orderNameLabel: "الاسم الكامل *",
-      orderPhoneLabel: "رقم الهاتف / واتساب *",
+      orderNameLabel: "الاسم",
+      orderPhoneLabel: "رقم الواتساب",
       orderBookLabel: "الكتب المطلوبة",
-      orderNotesLabel: "ملاحظات (اختياري)",
-      orderNotesPlaceholder: "مثال: أريد النسخة المترجمة للعربية...",
       orderNameHint: "يرجى تعبئة الاسم بالحروف اللاتينية (فرنسية أو إنجليزية) وليس بالعربية",
       orderPhoneHint: "يرجى كتابة الرقم بأرقام إنجليزية فقط (0-9) بدون أرقام عربية",
       orderNameError: "الاسم يجب أن يكون بالفرنسية أو الإنجليزية فقط (بدون حروف عربية)",
@@ -3278,11 +3276,9 @@
       relatedBooks: "Livres similaires de la même catégorie",
       orderTitle: "Finaliser la commande",
       orderSub: "Entrez vos informations et nous vous contacterons pour confirmer",
-      orderNameLabel: "Nom complet *",
-      orderPhoneLabel: "Téléphone / WhatsApp *",
+      orderNameLabel: "Nom",
+      orderPhoneLabel: "Numéro WhatsApp",
       orderBookLabel: "Livres commandés",
-      orderNotesLabel: "Notes (optionnel)",
-      orderNotesPlaceholder: "Ex. : je souhaite la version traduite en arabe...",
       orderNameHint: "Veuillez saisir le nom en lettres latines (français ou anglais), pas en arabe",
       orderPhoneHint: "Veuillez saisir le numéro avec des chiffres latins uniquement (0-9)",
       orderNameError: "Le nom doit être en français ou anglais uniquement (sans caractères arabes)",
@@ -3365,11 +3361,9 @@
       relatedBooks: "Similar books from the same category",
       orderTitle: "Complete your order",
       orderSub: "Enter your details and we will contact you to confirm",
-      orderNameLabel: "Full name *",
-      orderPhoneLabel: "Phone / WhatsApp *",
+      orderNameLabel: "Name",
+      orderPhoneLabel: "WhatsApp number",
       orderBookLabel: "Books ordered",
-      orderNotesLabel: "Notes (optional)",
-      orderNotesPlaceholder: "e.g. I want the Arabic translated version...",
       orderNameHint: "Please enter the name in Latin letters (French or English), not Arabic",
       orderPhoneHint: "Please enter the phone number with Latin digits only (0-9)",
       orderNameError: "Name must be in French or English only (no Arabic characters)",
@@ -3799,22 +3793,18 @@ const themeBtn = document.getElementById('themeToggle');
         يرجى تعبئة الاسم والرقم بالحروف والأرقام اللاتينية (فرنسية/إنجليزية) وليس بالعربية
       </p>
 <div class="order-field">
-<label data-i18n="orderNameLabel" for="orderName">الاسم الكامل <span>*</span></label>
+<label data-i18n="orderNameLabel" for="orderName">الاسم <span>*</span></label>
 <input autocomplete="name" dir="ltr" id="orderName" name="name" placeholder="Ex: Ahmed Benali" required="" style="text-align:left" type="text"/>
 <p class="order-hint" id="orderNameHint">يرجى تعبئة الاسم بالحروف اللاتينية (فرنسية أو إنجليزية) وليس بالعربية</p>
 </div>
 <div class="order-field">
-<label data-i18n="orderPhoneLabel" for="orderPhone">رقم الهاتف / واتساب <span>*</span></label>
+<label data-i18n="orderPhoneLabel" for="orderPhone">رقم الواتساب <span>*</span></label>
 <input autocomplete="tel" dir="ltr" id="orderPhone" inputmode="numeric" name="phone" placeholder="05........" required="" style="text-align:left" type="tel"/>
 <p class="order-hint" id="orderPhoneHint">يرجى كتابة الرقم بأرقام إنجليزية فقط (0-9) بدون أرقام عربية</p>
 </div>
 <div class="order-field">
 <label data-i18n="orderBookLabel" for="orderBook">الكتب المطلوبة</label>
 <textarea id="orderBook" name="book" readonly="" rows="3" style="min-height:72px;resize:none"></textarea>
-</div>
-<div class="order-field">
-<label data-i18n="orderNotesLabel" for="orderNotes">ملاحظات (اختياري)</label>
-<textarea data-i18n-placeholder="orderNotesPlaceholder" id="orderNotes" name="notes" placeholder="مثال: أريد النسخة المترجمة للعربية..."></textarea>
 </div>
 <div class="order-actions">
 <button class="order-submit" data-i18n="orderSubmit" id="orderSubmitBtn" type="submit">إرسال الطلب</button>
@@ -4723,9 +4713,9 @@ function openOrderForm(bookTitle, fromCart){
   const orderSub = document.getElementById('orderSub');
   if(orderSub) orderSub.textContent = t.orderSub || 'أدخل بياناتك وسنتواصل معك لتأكيد الطلب';
   const nameLabel = document.querySelector('label[for="orderName"]');
-  if(nameLabel) nameLabel.innerHTML = (t.orderNameLabel || 'الاسم الكامل *').replace('*', '<span>*</span>');
+  if(nameLabel) nameLabel.innerHTML = (t.orderNameLabel || 'الاسم *').replace('*', '<span>*</span>');
   const phoneLabel = document.querySelector('label[for="orderPhone"]');
-  if(phoneLabel) phoneLabel.innerHTML = (t.orderPhoneLabel || 'رقم الهاتف / واتساب *').replace('*', '<span>*</span>');
+  if(phoneLabel) phoneLabel.innerHTML = (t.orderPhoneLabel || 'رقم الواتساب *').replace('*', '<span>*</span>');
   const bookLabel = document.querySelector('label[for="orderBook"]');
   if(bookLabel) bookLabel.textContent = t.orderBookLabel || 'الكتاب';
   const notesLabel = document.querySelector('label[for="orderNotes"]');
