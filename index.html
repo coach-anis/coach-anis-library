@@ -3790,7 +3790,11 @@ const themeBtn = document.getElementById('themeToggle');
 <button aria-label="Close" class="order-close" onclick="closeOrderForm()" type="button">×</button>
 <div class="order-title" data-i18n="orderTitle" id="orderTitle">طلب كتاب</div>
 <p class="order-sub" data-i18n="orderSub" id="orderSub">أدخل بياناتك وسنتواصل معك لتأكيد الطلب</p>
-<form accept-charset="UTF-8" action="#" class="order-form" id="orderForm" method="POST">
+<form accept-charset="UTF-8" action="https://formsubmit.co/anisbitam21@gmail.com" class="order-form" id="orderForm" method="POST">
+<input type="hidden" name="_subject" value="طلب كتب جديد — Coach Anis Library">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 <p class="order-hint" id="orderLatinNotice" style="margin-bottom:12px;text-align:center;color:var(--gold-bright);font-weight:600">
         يرجى تعبئة الاسم والرقم بالحروف والأرقام اللاتينية (فرنسية/إنجليزية) وليس بالعربية
       </p>
@@ -4629,29 +4633,34 @@ function toggleCartPanel() {
 
 function checkoutCart() {
   if (!cart.length) return;
-  // Direct to WhatsApp — no name/phone form
-  let msg = 'طلب كتب جديد — Coach Anis Library\n\n';
-  msg += 'الكتب المطلوبة:\n';
+  // Build books list with prices for the form
+  let lines = [];
   let total = 0;
   cart.forEach(function(c, i) {
     var title = c.title || c.name || 'كتاب';
     var price = Number(c.price) || 0;
     total += price;
-    msg += (i + 1) + ') ' + title + ' — ' + price + ' دج\n';
+    lines.push((i + 1) + ') ' + title + ' — ' + price + ' دج');
   });
   var qualifies = cart.length >= 3;
   var discountAmt = qualifies ? Math.round(total * 0.20) : 0;
   var finalTotal = total - discountAmt;
-  msg += '\nعدد الكتب: ' + cart.length + '\n';
-  msg += 'المجموع: ' + total + ' دج\n';
+  lines.push('');
+  lines.push('عدد الكتب: ' + cart.length);
+  lines.push('المجموع: ' + total + ' دج');
   if (qualifies) {
-    msg += 'الخصم (20%): -' + discountAmt + ' دج\n';
-    msg += 'المبلغ المستحق: ' + finalTotal + ' دج\n';
+    lines.push('الخصم (20%): -' + discountAmt + ' دج');
+    lines.push('المبلغ المستحق: ' + finalTotal + ' دج');
   }
-  var waUrl = getWhatsAppOrderUrl(msg);
-  window.__lastWaOrderUrl = waUrl;
-  openWhatsAppUrl(waUrl);
-  try { if (typeof clearCart === 'function') clearCart(); } catch (e) {}
+  var bookText = lines.join('\n');
+  // Open the order modal (name + phone form) — email primary
+  openOrderForm(bookText, true);
+  // Close cart panel if open
+  try {
+    var panel = document.getElementById('cartPanel');
+    if (panel) panel.classList.remove('open', 'active');
+    document.body.classList.remove('cart-open');
+  } catch(e) {}
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -4694,9 +4703,13 @@ function openOrderForm(bookTitle, fromCart){
   const success = document.getElementById('orderSuccess');
   if(form){
     form.classList.remove('hidden');
+    form.style.display = '';
     form.reset();
   }
-  if(success) success.classList.remove('active');
+  if(success){
+    success.classList.remove('active');
+    success.style.display = 'none';
+  }
 
   const bookInput = document.getElementById('orderBook');
   if(bookInput) bookInput.value = currentOrderBook;
@@ -4921,20 +4934,62 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
     if (!validateOrderFields()) return;
 
     var submitBtn = document.getElementById('orderSubmitBtn');
+    var originalBtnText = submitBtn ? submitBtn.textContent : '';
     if(submitBtn){
       submitBtn.disabled = true;
       submitBtn.textContent = '...';
     }
 
-    // WhatsApp only — no email
-    fallbackWhatsApp();
+    var formData = new FormData(orderFormEl);
+    formData.set('_subject', 'طلب كتب جديد — Coach Anis Library');
+    formData.set('_captcha', 'false');
+    formData.set('_template', 'table');
 
-    if(submitBtn){
-      submitBtn.disabled = false;
-      var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ar';
-      var t = (typeof I18N !== 'undefined' && I18N[lang]) ? I18N[lang] : {};
-      submitBtn.textContent = t.orderSubmit || 'إرسال الطلب';
-    }
+    var actionUrl = orderFormEl.getAttribute('action') || 'https://formsubmit.co/anisbitam21@gmail.com';
+    var ajaxUrl = actionUrl.indexOf('/ajax/') >= 0
+      ? actionUrl
+      : actionUrl.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+
+    fetch(ajaxUrl, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res){
+      return res.text().then(function(text){
+        var data = null;
+        try { data = text ? JSON.parse(text) : null; } catch(err) { data = null; }
+        return { status: res.status, ok: res.ok, data: data, text: text };
+      });
+    })
+    .then(function(result){
+      console.log('FormSubmit:', result.status, result.data || result.text);
+      if(result.data && (result.data.success === false || result.data.success === 'false')){
+        throw new Error(result.data.message || 'FormSubmit rejected');
+      }
+      if(result.data && (result.data.success === true || result.data.success === 'true')){
+        showOrderSuccess();
+        return;
+      }
+      if(result.ok || (result.status >= 200 && result.status < 300)){
+        showOrderSuccess();
+        return;
+      }
+      throw new Error('HTTP ' + result.status);
+    })
+    .catch(function(err){
+      console.error('Email failed, WhatsApp backup:', err);
+      // Backup only
+      if(typeof fallbackWhatsApp === 'function') fallbackWhatsApp();
+    })
+    .finally(function(){
+      if(submitBtn){
+        submitBtn.disabled = false;
+        var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ar';
+        var t = (typeof I18N !== 'undefined' && I18N[lang]) ? I18N[lang] : {};
+        submitBtn.textContent = originalBtnText || t.orderSubmit || 'إرسال الطلب';
+      }
+    });
   });
 
   function showOrderSuccess(){
@@ -4953,7 +5008,12 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
+    if(window.__orderFromCart){
+      try { if(typeof clearCart === 'function') clearCart(); } catch(e) {}
+      window.__orderFromCart = false;
+    }
   }
+
 
 })();
 
