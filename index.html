@@ -3193,6 +3193,9 @@
       orderSub: "أدخل بياناتك وسنتواصل معك لتأكيد الطلب",
       orderNameLabel: "الاسم",
       orderPhoneLabel: "رقم الواتساب",
+      orderEmailLabel: "الإيميل",
+      orderEmailHint: "يرجى إدخال بريد إلكتروني صحيح بالحروف اللاتينية",
+      orderEmailError: "يرجى إدخال إيميل صحيح مثل: name@gmail.com",
       orderBookLabel: "الكتب المطلوبة",
       orderNameHint: "يرجى تعبئة الاسم بالحروف اللاتينية (فرنسية أو إنجليزية) وليس بالعربية",
       orderPhoneHint: "يرجى كتابة الرقم بأرقام إنجليزية فقط (0-9) بدون أرقام عربية",
@@ -3278,6 +3281,9 @@
       orderSub: "Entrez vos informations et nous vous contacterons pour confirmer",
       orderNameLabel: "Nom",
       orderPhoneLabel: "Numéro WhatsApp",
+      orderEmailLabel: "E-mail",
+      orderEmailHint: "Veuillez entrer une adresse e-mail valide en caractères latins",
+      orderEmailError: "Entrez un e-mail valide, ex: name@gmail.com",
       orderBookLabel: "Livres commandés",
       orderNameHint: "Veuillez saisir le nom en lettres latines (français ou anglais), pas en arabe",
       orderPhoneHint: "Veuillez saisir le numéro avec des chiffres latins uniquement (0-9)",
@@ -3363,6 +3369,9 @@
       orderSub: "Enter your details and we will contact you to confirm",
       orderNameLabel: "Name",
       orderPhoneLabel: "WhatsApp number",
+      orderEmailLabel: "Email",
+      orderEmailHint: "Please enter a valid email address in Latin characters",
+      orderEmailError: "Enter a valid email, e.g. name@gmail.com",
       orderBookLabel: "Books ordered",
       orderNameHint: "Please enter the name in Latin letters (French or English), not Arabic",
       orderPhoneHint: "Please enter the phone number with Latin digits only (0-9)",
@@ -3801,6 +3810,11 @@ const themeBtn = document.getElementById('themeToggle');
 <label data-i18n="orderPhoneLabel" for="orderPhone">رقم الواتساب <span>*</span></label>
 <input autocomplete="tel" dir="ltr" id="orderPhone" inputmode="numeric" name="phone" placeholder="05........" required="" style="text-align:left" type="tel"/>
 <p class="order-hint" id="orderPhoneHint">يرجى كتابة الرقم بأرقام إنجليزية فقط (0-9) بدون أرقام عربية</p>
+</div>
+<div class="order-field">
+<label data-i18n="orderEmailLabel" for="orderEmail">الإيميل <span>*</span></label>
+<input autocomplete="email" dir="ltr" id="orderEmail" name="email" placeholder="example@gmail.com" required="" style="text-align:left" type="email" inputmode="email"/>
+<p class="order-hint" id="orderEmailHint">يرجى إدخال بريد إلكتروني صحيح بالحروف اللاتينية</p>
 </div>
 <div class="order-field">
 <label data-i18n="orderBookLabel" for="orderBook">الكتب المطلوبة</label>
@@ -4744,6 +4758,8 @@ function openOrderForm(bookTitle, fromCart){
   const phoneInp = document.getElementById('orderPhone');
   if(nameInp) nameInp.classList.remove('invalid');
   if(phoneInp) phoneInp.classList.remove('invalid');
+  var emailInp = document.getElementById('orderEmail');
+  if(emailInp) emailInp.classList.remove('invalid');
 
   document.getElementById('orderModal').classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -4781,7 +4797,8 @@ function buildOrderMessage(){
   const notes = (document.getElementById('orderNotes') || {}).value || '';
   let msg = 'طلب كتب جديد — Coach Anis Library\n\n';
   msg += 'الاسم: ' + name + '\n';
-  msg += 'الهاتف/واتساب: ' + phone + '\n\n';
+  msg += 'رقم الواتساب: ' + phone + '\n';
+  msg += 'الإيميل: ' + ((document.getElementById('orderEmail') || {}).value || '') + '\n\n';
 
   // Prefer live cart data (title + price)
   if(typeof cart !== 'undefined' && cart && cart.length){
@@ -4904,17 +4921,35 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
       }
     }
 
+    const emailEl = document.getElementById('orderEmail');
+    const emailHint = document.getElementById('orderEmailHint');
+    if (emailEl) emailEl.classList.remove('invalid');
+    if (emailHint) {
+      emailHint.classList.remove('error');
+      emailHint.textContent = t.orderEmailHint || 'يرجى إدخال بريد إلكتروني صحيح بالحروف اللاتينية';
+    }
+    const email = (emailEl && emailEl.value) ? emailEl.value.trim() : '';
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && !hasArabicLetters(email);
+    if (!email || !emailOk) {
+      ok = false;
+      if (emailEl) emailEl.classList.add('invalid');
+      if (emailHint) {
+        emailHint.classList.add('error');
+        emailHint.textContent = t.orderEmailError || 'يرجى إدخال إيميل صحيح مثل: name@gmail.com';
+      }
+    }
+
     return ok;
   }
 
   // Live feedback while typing
-  ['orderName', 'orderPhone'].forEach(function(id) {
+  ['orderName', 'orderPhone', 'orderEmail'].forEach(function(id) {
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('input', function() {
-      // soft clear error style as user types
       el.classList.remove('invalid');
-      const hint = document.getElementById(id === 'orderName' ? 'orderNameHint' : 'orderPhoneHint');
+      var hintId = id === 'orderName' ? 'orderNameHint' : (id === 'orderPhone' ? 'orderPhoneHint' : 'orderEmailHint');
+      const hint = document.getElementById(hintId);
       if (hint) hint.classList.remove('error');
     });
   });
