@@ -343,5 +343,6 @@ window.bookTocImages = {
   // "essentials of strength training and conditioning (5th edition)": ["images/toc/essentials-strength-conditioning-1.jpg"],
   // "j3 university physique programs collection": ["images/toc/j3-physique-1.jpg"],
   // "j3 university modules collection": ["images/toc/j3-modules-1.jpg"],
-  "trt 101 testosterone replacement therapy": ["images/toc/toc_trt_101_01.jpg"]
+  "trt 101 testosterone replacement therapy": ["images/toc/toc_trt_101_01.jpg"],
+  "the science of hgh": ["images/toc/science-of-hgh-1.jpg"]
 };
