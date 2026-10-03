@@ -39,7 +39,7 @@
   }
   .book-card, .filter-btn, .theme-toggle, .ig-top, .lang-switch, .lang-btn,
   .search-box input, .buy-btn, .details-btn, header, footer, .coach-banner-inner,
-  .packs-banner-inner, .detail-page, .order-box, .brand-text, .hero h1, .hero p {
+  .packs-banner-inner, .detail-page, .order-box, .brand-text, .hero h1, .hero p, .auth-notice-inner {
     transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .25s ease;
   }
 
@@ -227,6 +227,58 @@
     max-width: 520px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+
+  /* ===== Digital authenticity notice ===== */
+  .auth-notice {
+    max-width: 640px;
+    margin: 28px auto 8px;
+    padding: 0 5vw 8px;
+  }
+  .auth-notice-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(201,161,90,0.28);
+    background:
+      linear-gradient(135deg, rgba(201,161,90,0.10) 0%, rgba(201,161,90,0.04) 100%),
+      rgba(24,24,26,0.85);
+    box-shadow: 0 8px 24px -16px rgba(0,0,0,0.5);
+  }
+  body.light .auth-notice-inner {
+    background:
+      linear-gradient(135deg, rgba(184,146,63,0.12) 0%, rgba(184,146,63,0.04) 100%),
+      #fff;
+    border-color: rgba(184,146,63,0.35);
+    box-shadow: 0 6px 18px -12px rgba(0,0,0,0.12);
+  }
+  .auth-notice-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    color: var(--gold);
+  }
+  .auth-notice-text {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--text-dim);
+    text-align: start;
+  }
+  .auth-notice-text strong {
+    color: var(--gold-bright);
+    font-weight: 700;
+  }
+  body.light .auth-notice-text strong { color: #9a7a30; }
+  @media (max-width: 480px) {
+    .auth-notice { margin: 20px auto 4px; padding-bottom: 4px; }
+    .auth-notice-inner { padding: 10px 12px; gap: 8px; border-radius: 10px; }
+    .auth-notice-text { font-size: 12px; line-height: 1.6; }
+    .auth-notice-icon { width: 20px; height: 20px; }
   }
 
   /* ===== Search ===== */
@@ -2191,6 +2243,7 @@
 <h1 data-i18n="heroTitle">اكتشف أفضل الكتب العالمية في علوم الرياضة و التغذية</h1>
 <p data-i18n="heroDesc">مكتبة تضم نخبة الكتب العالمية في علوم الرياضة والصحة مع خدمة ترجمتها للغة العربية</p>
 </section>
+
 <div class="search-wrap">
 <div class="search-box">
 <input aria-autocomplete="list" aria-controls="searchSuggest" aria-expanded="false" autocomplete="off" data-i18n-placeholder="searchPlaceholder" id="bookSearch" placeholder="ابحث عن كتاب..." role="combobox" type="text"/>
@@ -3192,6 +3245,17 @@
 </article>
 </section>
 <p class="no-results" data-i18n="noResults" id="noResults">لا توجد نتائج مطابقة لبحثك.</p>
+
+<div class="auth-notice" role="note" aria-label="تنويه حول الكتب">
+  <div class="auth-notice-inner">
+    <svg class="auth-notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/>
+      <path d="M5 19h14"/>
+      <path d="M8 19v-2a2 2 0 012-2h4a2 2 0 012 2v2"/>
+    </svg>
+    <p class="auth-notice-text" data-i18n-html="authNotice">جميع الكتب كتب <strong>إلكترونية أصلية كاملة</strong> وليست كتب ورقية او نسخ مسربة ناقصة</p>
+  </div>
+</div>
 <footer data-i18n-html="footer">Coach Anis Library — مكتبة خاصة بمتابعين <strong>Coach Anis</strong>
 <a class="ig-btn ig-footer" href="https://www.instagram.com/coach__anis/" rel="noopener noreferrer" target="_blank">
 <svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
@@ -3206,6 +3270,7 @@
       coachCta: "اكتشف باقات التدريب الأونلاين",
       heroTitle: "اكتشف أفضل الكتب العالمية في علوم الرياضة و التغذية",
       heroDesc: "مكتبة تضم نخبة الكتب العالمية في علوم الرياضة والصحة مع خدمة ترجمتها للغة العربية",
+      authNotice: "جميع الكتب كتب <strong>إلكترونية أصلية كاملة</strong> وليست كتب ورقية او نسخ مسربة ناقصة",
       searchPlaceholder: "ابحث عن كتاب...",
       buyBtn: "أضف إلى السلة",
       detailsBtn: "تفاصيل الكتاب",
@@ -3294,6 +3359,7 @@
       coachCta: "Découvrir le coaching en ligne",
       heroTitle: "Découvrez les meilleurs livres mondiaux en sciences du sport et nutrition",
       heroDesc: "Une bibliothèque sélectionnée de références internationales en sport et santé.",
+      authNotice: "Tous les livres sont des <strong>e-books originaux complets</strong> et non des livres papier ou des copies pirate incomplètes.",
       searchPlaceholder: "Rechercher un livre...",
       buyBtn: "Ajouter au panier",
       detailsBtn: "Détails du livre",
@@ -3382,6 +3448,7 @@
       coachCta: "Explore online coaching programs",
       heroTitle: "Discover the best global books in sports science and nutrition",
       heroDesc: "A curated library of world-class books in sports science and health.",
+      authNotice: "All books are <strong>original complete e-books</strong>, not paper books or incomplete leaked copies.",
       searchPlaceholder: "Search for a book...",
       buyBtn: "Add to cart",
       detailsBtn: "Book details",
