@@ -336,7 +336,6 @@ window.bookTocImages = {
   //
   //
   // "anabolic steroids": ["images/toc/anabolic-steroids-1.jpg"],
-  // "jeff nippard collection": ["images/toc/jeff-nippard-1.jpg"],
   // "scientific principles of hypertrophy training": ["images/toc/scientific-hypertrophy-1.jpg"],
   // "the basic map work for how to properly cycle": ["images/toc/basic-map-cycle-1.jpg"],
   // "william llewellyn's anabolics": ["images/toc/william-anabolics-1.jpg"],
