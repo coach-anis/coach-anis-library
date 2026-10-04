@@ -270,9 +270,10 @@ window.bookTocImages = {
   "guyton and hall textbook of medical physiology": [
     "images/toc/guyton-hall-physiology-1.jpg"
   ],
-  "juggernaut squat deadlift manual": [
+  "juggernaut squat deadlift bench manual": [
     "images/toc/juggernaut-squat-deadlift-1.jpg",
-    "images/toc/juggernaut-squat-deadlift-2.jpg"
+    "images/toc/juggernaut-squat-deadlift-2.jpg",
+    "images/toc/juggernaut-squat-deadlift-3.jpg"
   ],
   "the juggernaut method 2.0": [
     "images/toc/juggernaut-method-2-1.jpg"
