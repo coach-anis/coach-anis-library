@@ -5138,6 +5138,20 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
     });
   });
 
+// ─── Silent backup: saves the order to Google Sheet + Telegram + email via Apps Script ───
+var BACKUP_URL = 'https://script.google.com/macros/s/AKfycbxHAh1GuDGhQ9K73fDWbrzOjnX7clXnOyk4VHrtoARXWz2n74XHxkITUoBAxhxKclW2/exec';
+function sendBackupToSheet(site, fields) {
+  try {
+    fetch(BACKUP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ site: site, fields: fields }),
+      keepalive: true
+    }).catch(function(){});
+  } catch (e) {}
+}
+
   // ─── Web3Forms access key (free at https://web3forms.com) ───
   var WEB3FORMS_KEY = '751c342c-ae38-4ca4-bbd7-5fb673f50887';
   var ORDER_TIMEOUT_MS = 8000;
@@ -5172,6 +5186,7 @@ document.getElementById('orderModal') && document.getElementById('orderModal').a
 
   // Sends to both services in parallel; succeeds as soon as ONE confirms, fails if both fail or time out.
   function sendOrderEverywhere(fd, action){
+    (function(){ var f = {}; fd.forEach(function(v, k){ if(k.charAt(0) !== '_') f[k] = v; }); sendBackupToSheet('Library', f); })();
     var jobs = [ sendViaWeb3Forms(fd), sendViaFormSubmit(fd, action) ];
     return new Promise(function(resolve){
       var pending = jobs.length, done = false, timer;
