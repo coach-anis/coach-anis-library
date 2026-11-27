@@ -3951,7 +3951,6 @@ const themeBtn = document.getElementById('themeToggle');
 <h3 data-i18n="orderSuccessTitle">شكراً لطلبك</h3>
 <p data-i18n="orderSuccessDesc">تم استلام طلبك بنجاح. سنراجع التفاصيل ونتواصل معك قريباً لتأكيد الطلب وإتمام العملية.</p>
 <p id="orderFailNote" style="display:none"></p>
-<a id="orderWaLink" class="order-submit" href="#" target="_blank" rel="noopener" style="display:none;text-decoration:none;text-align:center;margin-top:14px"></a>
 </div>
 <div class="order-actions" style="margin-top:16px">
 <button class="order-submit" data-i18n="orderClose" onclick="closeOrderForm()" type="button">حسناً</button>
@@ -4859,7 +4858,6 @@ function openOrderForm(bookTitle, fromCart){
   }
   (function(){
     var fn = document.getElementById('orderFailNote'); if(fn) fn.style.display = 'none';
-    var wl = document.getElementById('orderWaLink'); if(wl) wl.style.display = 'none';
   })();
 
   const bookInput = document.getElementById('orderBook');
@@ -4983,34 +4981,7 @@ function isMobileDevice(){
     || (navigator.maxTouchPoints > 0 && window.innerWidth < 900);
 }
 
-function getWhatsAppOrderUrl(msg){
-  const WHATSAPP_NUMBER = '213655823870';
-  return 'https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(msg || '');
-}
 
-function openWhatsAppUrl(waUrl){
-  if(!waUrl) return;
-  if(isMobileDevice()){
-    window.location.href = waUrl;
-    return;
-  }
-  var w = null;
-  try { w = window.open(waUrl, '_blank'); } catch(e) { w = null; }
-  if(!w) window.location.href = waUrl;
-}
-
-function fallbackWhatsApp(){
-  const msg = buildOrderMessage();
-  const waUrl = getWhatsAppOrderUrl(msg);
-  window.__lastWaOrderUrl = waUrl;
-  openWhatsAppUrl(waUrl);
-  if(window.__orderFromCart){
-    try { if(typeof clearCart === 'function') clearCart(); } catch(e) {}
-    window.__orderFromCart = false;
-  }
-}
-
-function fallbackMailto(){ fallbackWhatsApp(); }
 
 document.getElementById('orderModal') && document.getElementById('orderModal').addEventListener('click', function(e){
   if(e.target === this) closeOrderForm();
@@ -5210,43 +5181,17 @@ function sendBackupToSheet(site, fields) {
     var p = success.querySelector('p[data-i18n="orderSuccessDesc"]');
     if(p){ if(t.orderSuccessDesc) p.textContent = t.orderSuccessDesc; p.style.display = ''; }
     var fn = document.getElementById('orderFailNote'); if(fn) fn.style.display = 'none';
-    var wl = document.getElementById('orderWaLink'); if(wl) wl.style.display = 'none';
   }
 
-  // Shown only when sending could not be confirmed. A real link = direct user tap, never blocked.
+  // Shown only when sending could not be confirmed: keep the form so the user can retry.
   function showOrderFailure(){
     var texts = {
-      ar: { title: 'لم نتمكن من تأكيد الإرسال', note: 'لم يصلنا طلبك بعد. اضغط الزر أدناه لإرساله عبر واتساب.', btn: 'إرسال الطلب عبر واتساب' },
-      fr: { title: 'Envoi non confirmé', note: "Votre commande n'a pas pu être confirmée. Appuyez sur le bouton pour l'envoyer via WhatsApp.", btn: 'Envoyer via WhatsApp' },
-      en: { title: 'Could not confirm sending', note: 'We could not confirm your order. Tap the button below to send it via WhatsApp.', btn: 'Send via WhatsApp' }
+      ar: 'لم نتمكن من تأكيد إرسال طلبك. يرجى التحقق من اتصالك بالإنترنت وإعادة المحاولة.',
+      fr: "Nous n'avons pas pu confirmer l'envoi de votre commande. Vérifiez votre connexion et réessayez.",
+      en: 'We could not confirm that your order was sent. Please check your connection and try again.'
     };
     var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ar';
-    var tx = texts[lang] || texts.ar;
-    var form = document.getElementById('orderForm');
-    var success = document.getElementById('orderSuccess');
-    var modal = document.getElementById('orderModal');
-    if(form){ form.classList.add('hidden'); form.style.display = 'none'; }
-    if(success){
-      var icon = success.querySelector('.order-success-icon'); if(icon) icon.textContent = '!';
-      var h3 = success.querySelector('h3'); if(h3) h3.textContent = tx.title;
-      var p = success.querySelector('p[data-i18n="orderSuccessDesc"]'); if(p) p.style.display = 'none';
-      var fn = document.getElementById('orderFailNote'); if(fn){ fn.textContent = tx.note; fn.style.display = 'block'; }
-      var wl = document.getElementById('orderWaLink');
-      if(wl){
-        wl.href = getWhatsAppOrderUrl(buildOrderMessage());
-        wl.textContent = tx.btn;
-        wl.style.display = 'block';
-        wl.onclick = function(){
-          if(window.__orderFromCart){
-            try { if(typeof clearCart === 'function') clearCart(); } catch(e) {}
-            window.__orderFromCart = false;
-          }
-        };
-      }
-      success.classList.add('active');
-      success.style.display = 'block';
-    }
-    if(modal){ modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    alert(texts[lang] || texts.ar);
   }
 
   function showOrderSuccess(){
